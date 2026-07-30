@@ -1,0 +1,153 @@
+import React, { useState } from 'react';
+import { PROJECTS_DATA } from '../../data/projectsData';
+import { ProjectCard } from '../ProjectCard';
+import { BuildBadge } from '../BuildBadge';
+import { MdTerminal as Terminal, MdLayers as Layers, MdWallet as Wallet, MdCode as Code2, MdAutoAwesome as Sparkles, MdCheckCircleOutline as CheckCircle2, MdVerifiedUser as MdVerifiedUser, MdInsights as Activity, MdSearch as Search, MdArrowForward as ArrowRight, MdDownload as Download, MdContentCopy as Copy, MdCheck as Check, MdImage as ImageIcon } from 'react-icons/md';
+import { FaGithub as Github } from 'react-icons/fa';
+
+interface HomePageProps {
+  onNavigate: (path: string) => void;
+}
+
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [copiedCloneAll, setCopiedCloneAll] = useState(false);
+
+  const projects = Object.values(PROJECTS_DATA);
+
+  const filteredProjects = projects.filter((p) => {
+    const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
+    const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.repo.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.techStack.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
+
+  const categories = ['All', 'Finance & Tools', 'Core Framework', 'UI & Design Systems'];
+
+  return (
+    <div className="space-y-12">
+      
+      {/* Hero Header Banner */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-zinc-900 to-zinc-950 text-white rounded-3xl p-6 sm:p-10 border border-zinc-800 shadow-2xl">
+        <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+        <div className="relative z-10 max-w-3xl space-y-5">
+          
+          <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs font-mono font-semibold">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Status</span>
+            <span className="opacity-50">•</span>
+            <span>Active</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+            Isaiah's FOSS <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-400">Applications</span>
+          </h1>
+
+          <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-sans">
+            Independent, free and open-source applications built by Isaiah. Featuring Bedrock, Material Explorer, and Anchor budget & expense tracker.
+          </p>
+
+          {/* Quick Hero Actions */}
+          <div className="flex flex-wrap items-center gap-3 pt-3">
+            <button
+              onClick={() => onNavigate('/anchor')}
+              className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-400 text-zinc-950 font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-lg"
+            >
+              <Wallet className="w-4 h-4" />
+              <span>Anchor: Expense Tracker (Coming Soon)</span>
+            </button>
+
+            <button
+              onClick={() => onNavigate('/status')}
+              className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-700"
+            >
+              <Activity className="w-4 h-4 text-red-400" />
+              <span>Commit Matrix</span>
+            </button>
+
+            <button
+              onClick={() => onNavigate('/screenshots')}
+              className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-700"
+            >
+              <ImageIcon className="w-4 h-4 text-red-400" />
+              <span>Screenshots & Gallery</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* All Projects Section Header & Filters */}
+      <section className="space-y-6 pt-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-extrabold text-zinc-900 dark:text-zinc-100 tracking-tight">
+              FOSS Projects & Repositories
+            </h2>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+              Select a project card below to view detailed README previews, build badges, and screenshots.
+            </p>
+          </div>
+
+          {/* Search */}
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="relative">
+              <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5" />
+              <input
+                type="text"
+                placeholder="Filter repositories..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none font-mono"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Projects Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} onNavigate={onNavigate} />
+          ))}
+        </div>
+
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-12 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8">
+            <Code2 className="w-10 h-10 text-zinc-400 mx-auto mb-2" />
+            <h3 className="font-bold text-zinc-900 dark:text-zinc-100">No projects match your filter</h3>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Try clearing your search query.</p>
+          </div>
+        )}
+      </section>
+
+      {/* Domain notice bar */}
+      <section className="bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <MdVerifiedUser className="w-5 h-5 text-red-500" />
+            <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 font-mono">
+              Canonical Location: play.isaiahthings.me
+            </h3>
+          </div>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400">
+            All apps, screenshots, release artifacts, and build badges are automatically updated from the <code className="font-mono text-red-600 dark:text-red-400">isaiahscape</code> GitHub organization.
+          </p>
+        </div>
+
+        <a
+          href="https://github.com/isaiahscape"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-xs shrink-0"
+        >
+          <Github className="w-4 h-4" />
+          <span>Follow isaiahscape on GitHub</span>
+        </a>
+      </section>
+
+    </div>
+  );
+};

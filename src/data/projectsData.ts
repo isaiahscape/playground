@@ -1,0 +1,186 @@
+import { FOSSProject } from '../types';
+
+export const PROJECTS_DATA: Record<string, FOSSProject> = {
+  bedrock: {
+    id: 'bedrock',
+    name: 'Bedrock',
+    repo: 'isaiahscape/bedrock',
+    tagline: 'High-contrast, minimalist monochrome notes editor for Android',
+    description: 'A minimalist monochrome notes editor for Android, combining the lightweight feel of Google Keep with Markdown support and local-first security.',
+    longDescription: 'Bedrock is a high-contrast, minimalist monochrome notes editor for Android. Built with a focus on simplicity and distraction-free writing, it combines the lightweight feel of Google Keep with powerful Markdown support and local-first security.',
+    category: 'Android Application',
+    version: 'v1.0',
+    license: 'Apache-2.0',
+    techStack: ['Jetpack Compose', 'MVVM', 'Room Database', 'Kotlin Coroutines', 'Roborazzi'],
+    githubUrl: 'https://github.com/isaiahscape/bedrock',
+    cloneUrl: 'https://github.com/isaiahscape/bedrock.git',
+    features: [
+      'Minimalist Design: A pure monochrome aesthetic using Material 3',
+      'Dual Editing Modes: Plain Notes and Markdown Editor with live preview',
+      'Interactive Checklists: Create and manage to-do lists directly within your notes',
+      'Local-First Security: Secure sensitive notes with local SHA-256 encryption and PIN/passcode',
+      'Offline Sync Engine: A simulated sync engine that manages local caching',
+      'Organization: Powerful tag-based categorization and instant search',
+      'Backup & Restore: Export and import your notes as JSON'
+    ],
+    defaultScreenshots: [
+      {
+        id: 'bedrock-ss-1',
+        projectId: 'bedrock',
+        title: 'Monochrome Notes List',
+        caption: 'A clean, high-contrast monochrome design inspired by modern Keep-style layouts.',
+        url: 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80',
+        aspectRatio: '9/16'
+      },
+      {
+        id: 'bedrock-ss-2',
+        projectId: 'bedrock',
+        title: 'Markdown Editor',
+        caption: 'Dedicated environment with live preview and a quick formatting toolbar.',
+        url: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=80',
+        aspectRatio: '9/16'
+      }
+    ],
+    readmePreview: `# Bedrock 📓
+> High-contrast, minimalist monochrome notes editor for Android.
+
+\`\`\`bash
+# Clone the repository
+git clone https://github.com/isaiahscape/bedrock.git
+\`\`\`
+
+## Architecture & Tech Stack
+- **UI**: Jetpack Compose (Material 3)
+- **Architecture**: MVVM + Repository Pattern
+- **Persistence**: Room Database (SQLite)
+- **Navigation**: Jetpack Navigation Compose
+- **Asynchrony**: Kotlin Coroutines & Flow
+- **Testing**: Robolectric & Roborazzi
+`,
+    installation: {
+      git: 'git clone https://github.com/isaiahscape/bedrock.git',
+    }
+  },
+
+  materialexp: {
+    id: 'materialexp',
+    name: 'Overseer',
+    repo: 'isaiahscape/materialexp',
+    tagline: 'Modern, minimalist, and feature-packed Android file manager',
+    description: 'Built using Jetpack Compose and Material Design 3. Designed for high productivity and intuitive interaction.',
+    longDescription: 'Overseer is a modern, minimalist, and feature-packed Android file manager built using Jetpack Compose and Material Design 3. Designed for high productivity and intuitive interaction, it features multi-tab file browsing, dynamic view modes, storage analysis, built-in text/code editing, archive management, and responsive floating controls.',
+    category: 'Android Application',
+    version: 'v1.0.2',
+    license: 'Self MIT (github.com/isaiahscape/materialexp/license)',
+    techStack: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Kotlin Coroutines', 'Gradle'],
+    githubUrl: 'https://github.com/isaiahscape/materialexp',
+    cloneUrl: 'https://github.com/isaiahscape/materialexp.git',
+    features: [
+      'Full-Featured File Operations: Browse internal storage, create files/folders, copy, cut, paste, rename, batch-select, and safely send items to the Recycle Bin.',
+      'Material Expressive UI: Clean floating navigation capsule with an interactive Expressive Speed Dial menu (+ expander) for fast actions.',
+      'Storage Analyzer: Gain insight into storage distribution with interactive category breakdowns.',
+      'Custom View Modes & Sorting: Toggle between Detailed List, Compact List, 2-Column Grid, and 3-Column Grid.',
+      'Built-in Editor & Media Viewer: Directly view images and edit text or code files without leaving the application.',
+      'Zip & Archive Tools: Compress files into .zip archives and inspect or extract compressed contents effortlessly.',
+      'Bookmarks & Recycle Bin: Bookmark frequently accessed folders and restore accidentally deleted items.',
+      'Automated CI/CD: Integrated GitHub Actions workflow for building both Debug and Release APKs automatically.'
+    ],
+    defaultScreenshots: [
+      {
+        id: 'materialexp-ss-1',
+        projectId: 'materialexp',
+        title: 'Material Explorer File List',
+        caption: 'Browse internal storage with dynamic view modes.',
+        url: 'https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&w=1200&q=80',
+        aspectRatio: '9/16'
+      },
+      {
+        id: 'materialexp-ss-2',
+        projectId: 'materialexp',
+        title: 'Storage Analyzer',
+        caption: 'Gain insight into storage distribution with interactive category breakdowns.',
+        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+        aspectRatio: '9/16'
+      }
+    ],
+    readmePreview: `# Material Explorer
+> Modern, minimalist, and feature-packed Android file manager built using Jetpack Compose and Material Design 3.
+
+\`\`\`bash
+# Clone the repository
+git clone https://github.com/isaiahscape/materialexp.git
+\`\`\`
+
+## Tech Stack & Architecture
+- **Language**: Kotlin
+- **UI Framework**: Jetpack Compose with Material Design 3 (androidx.compose.material3)
+- **State & Architecture**: MVVM architecture utilizing ViewModel, Kotlin Coroutines, and StateFlow
+- **Build System**: Gradle (Kotlin DSL - .gradle.kts)
+`,
+    installation: {
+      git: 'git clone https://github.com/isaiahscape/materialexp.git'
+    }
+  },
+
+  anchor: {
+    id: 'anchor',
+    name: 'Anchor',
+    repo: 'isaiahscape/anchor',
+    tagline: 'Privacy-focused personal budget & expense tracker app',
+    description: 'A privacy-first, offline-capable budget and expense tracker application designed to keep your financial metrics clear, private, and anchored.',
+    longDescription: 'Anchor is a modern open-source budget and expenditure management web application currently in active development (WIP). Designed with zero telemetry and 100% local data persistence (IndexedDB / localStorage), Anchor helps users log transactions, establish category limits, inspect spending trends, and export financial reports securely.',
+    category: 'Finance & Tools',
+    version: 'WIP',
+    license: 'GPL-3.0',
+    techStack: ['TypeScript', 'React', 'Recharts', 'IndexedDB', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/isaiahscape/anchor',
+    cloneUrl: 'https://github.com/isaiahscape/anchor.git',
+    features: [
+      'Interactive Expense & Income Logging with quick category tags',
+      'Category Budget Allocations with remaining balance warnings',
+      'Visual Expenditure Analytics (spending charts, monthly trends, breakdown pie)',
+      '100% Local-first data privacy — no accounts or external tracking servers required',
+      'CSV / JSON data backup, import & export capabilities'
+    ],
+    defaultScreenshots: [
+      {
+        id: 'anchor-ss-1',
+        projectId: 'anchor',
+        title: 'Anchor Budget Dashboard Overview',
+        caption: 'Interactive expenditure summary displaying monthly spending, category budget progress bars, and recent transaction log.',
+        url: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80',
+        aspectRatio: '16/9'
+      },
+      {
+        id: 'anchor-ss-2',
+        projectId: 'anchor',
+        title: 'Financial Analytics & Category Pie Chart',
+        caption: 'Category expenditure distribution, daily spending trends, and budget health indicators.',
+        url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+        aspectRatio: '16/9'
+      }
+    ],
+    readmePreview: `# Anchor Budget Tracker ⚓ (WIP)
+> Privacy-first, offline-first personal budget & expense management tool.
+
+\`\`\`bash
+# Clone the Anchor WIP repository
+git clone https://github.com/isaiahscape/anchor.git
+cd anchor
+npm install
+npm run dev
+\`\`\`
+
+## Current Features (WIP)
+- [x] Local storage expense & income ledger
+- [x] Category budget limits & visual progress bars
+- [x] Spending analytics charts
+- [x] Data export to JSON/CSV
+- [ ] Multi-device WebRTC sync (In Progress)
+`,
+    installation: {
+      git: 'git clone https://github.com/isaiahscape/anchor.git',
+      npm: 'npm install @isaiahscape/anchor (WIP preview)'
+    }
+  }
+};
