@@ -4,7 +4,7 @@ import { PROJECTS_DATA } from '../../data/projectsData';
 import { useGitHubRepo } from '../../hooks/useGitHubRepo';
 import { BuildBadge } from '../BuildBadge';
 import { ScreenshotGallery } from '../ScreenshotGallery';
-import { MdStar as Star, MdDeviceHub as GitFork, MdTerminal as Terminal, MdMenuBook as Book, MdLayers as Layers, MdWallet as Wallet, MdCheckCircleOutline as CheckCircle2, MdContentCopy as Copy, MdCheck as Check, MdOpenInNew as ExternalLink, MdInsertDriveFile as FileText, MdImage as ImageIcon, MdInsights as Activity, MdDownload as Download, MdArrowBack as ArrowLeft, MdAutoAwesome as Sparkles, MdSecurity as Shield, MdAccessTime as Clock } from 'react-icons/md';
+import { MdStar as Star, MdDeviceHub as GitFork, MdTerminal as Terminal, MdMenuBook as Book, MdLayers as Layers, MdWallet as Wallet, MdCheckCircleOutline as CheckCircle2, MdContentCopy as Copy, MdCheck as Check, MdOpenInNew as ExternalLink, MdInsertDriveFile as FileText, MdImage as ImageIcon, MdInsights as Activity, MdDownload as Download, MdArrowBack as ArrowLeft, MdAutoAwesome as Sparkles, MdSecurity as Shield, MdAccessTime as Clock, MdMenuBook as BookOpen } from 'react-icons/md';
 import { FaGithub as Github } from 'react-icons/fa';
 
 interface ProjectDetailPageProps {
@@ -99,6 +99,42 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
 
           {/* Action buttons */}
           <div className="flex flex-col sm:flex-row md:flex-col gap-2 shrink-0">
+            {project.wikiUrl && (
+              <a
+                href={project.wikiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-4 py-2.5 rounded-xl text-xs transition border border-zinc-200 dark:border-zinc-700"
+              >
+                <BookOpen className="w-4 h-4" />
+                <span>Wiki</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
+              </a>
+            )}
+
+            {(project.id === 'materialexp' || project.id === 'bedrock') && (
+              <button
+                onClick={async () => {
+                  try {
+                    const res = await fetch(`https://api.github.com/repos/${project.repo}/releases/latest`);
+                    const data = await res.json();
+                    if (data.html_url) {
+                      window.open(data.html_url, '_blank');
+                    } else {
+                      window.open(`${project.githubUrl}/releases/latest`, '_blank');
+                    }
+                  } catch (err) {
+                    window.open(`${project.githubUrl}/releases/latest`, '_blank');
+                  }
+                }}
+                className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition shadow-xs"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Latest Release</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
+              </button>
+            )}
+
             <a
               href={project.githubUrl}
               target="_blank"

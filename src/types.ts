@@ -24,6 +24,7 @@ export interface FOSSProject {
   license: string;
   techStack: string[];
   githubUrl: string;
+  wikiUrl?: string;
   cloneUrl: string;
   features: string[];
   defaultScreenshots: Screenshot[];

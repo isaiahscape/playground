@@ -6,56 +6,109 @@ export const PROJECTS_DATA: Record<string, FOSSProject> = {
     name: 'Bedrock',
     repo: 'isaiahscape/bedrock',
     tagline: 'High-contrast, minimalist monochrome notes editor for Android',
-    description: 'A minimalist monochrome notes editor for Android, combining the lightweight feel of Google Keep with Markdown support and local-first security.',
-    longDescription: 'Bedrock is a high-contrast, minimalist monochrome notes editor for Android. Built with a focus on simplicity and distraction-free writing, it combines the lightweight feel of Google Keep with powerful Markdown support and local-first security.',
+    description: 'A high-contrast, minimalist monochrome notes editor for Android. Combines the lightweight feel of Google Keep with powerful Markdown support, structured scheduling, and local-first security.',
+    longDescription: 'Bedrock is a high-contrast, minimalist monochrome notes editor for Android. Built with a focus on simplicity and distraction-free writing, it combines the lightweight feel of Google Keep with powerful Markdown support, structured scheduling, multi-note tabs, adaptive workspace, and local-first security.',
     category: 'Android Application',
     version: 'v1.0',
     license: 'Apache-2.0',
-    techStack: ['Jetpack Compose', 'MVVM', 'Room Database', 'Kotlin Coroutines', 'Roborazzi'],
+    techStack: ['Jetpack Compose', 'MVVM + Repository', 'Room Database', 'DataStore', 'Material 3 Adaptive', 'Coil', 'Kotlin Coroutines', 'Roborazzi', 'SHA-256'],
     githubUrl: 'https://github.com/isaiahscape/bedrock',
+    wikiUrl: 'https://github.com/isaiahscape/bedrock/wiki',
     cloneUrl: 'https://github.com/isaiahscape/bedrock.git',
     features: [
-      'Minimalist Design: A pure monochrome aesthetic using Material 3',
-      'Dual Editing Modes: Plain Notes and Markdown Editor with live preview',
-      'Interactive Checklists: Create and manage to-do lists directly within your notes',
-      'Local-First Security: Secure sensitive notes with local SHA-256 encryption and PIN/passcode',
-      'Offline Sync Engine: A simulated sync engine that manages local caching',
-      'Organization: Powerful tag-based categorization and instant search',
-      'Backup & Restore: Export and import your notes as JSON'
+      'Minimalist Design: A pure monochrome aesthetic using Material 3 with premium Pixel Launcher-style expansion animations',
+      'Adaptive Workspace: Intelligent layout that scales from single-pane mobile to Two-pane Desktop/Tablet view with persistent sidebar',
+      'Multi-Note Tabs: Open multiple notes simultaneously with a modern horizontal tab bar on desktops',
+      'Floating Profile Hub: Central command center for identity, profile picture, and app-wide utilities',
+      'In-Note Search: Find words or phrases instantly with live visual highlighting across all editor modes',
+      'Versatile Editing Modes: Plain Notes, Markdown Editor with live preview, and Structured To-do Lists',
+      'Rich Image Support: Insert images from gallery with resizable handles and reorderable move controls',
+      'Universal Scheduler: Set Date & Time reminders with system notifications that deep-link to notes',
+      'Safe Trash Bin: Notes moved to trash are kept for 30 days before automatic deletion',
+      'Master Password Security: Full alphanumeric Master Password with local SHA-256 encryption',
+      'Encrypted Backup Hub: Create secure local backups encrypted with your Master Password',
+      'Developer Mode: Hidden in-app debugging tools activated via a secret 7-tap sequence',
+      'Organization: Powerful tag-based categorization with searchable management dialog',
+      'Backup & Restore: Export and import notes as JSON for cross-device synchronization'
     ],
     defaultScreenshots: [
       {
         id: 'bedrock-ss-1',
         projectId: 'bedrock',
-        title: 'Monochrome Notes List',
-        caption: 'A clean, high-contrast monochrome design inspired by modern Keep-style layouts.',
-        url: 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80',
+        title: 'Monochrome Home Page',
+        caption: 'A clean, high-contrast monochrome design with a persistent sidebar for notes and filters.',
+        url: '/bedrock/screenshot-1.jpg',
         aspectRatio: '9/16'
       },
       {
         id: 'bedrock-ss-2',
         projectId: 'bedrock',
-        title: 'Markdown Editor',
-        caption: 'Dedicated environment with live preview and a quick formatting toolbar.',
-        url: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=80',
+        title: 'Floating Profile Hub & Settings',
+        caption: 'Central command center for identity, profile picture, and app-wide utilities with Material Expressive settings.',
+        url: '/bedrock/screenshot-2.jpg',
+        aspectRatio: '9/16'
+      },
+      {
+        id: 'bedrock-ss-3',
+        projectId: 'bedrock',
+        title: 'Multi-Note Tabs & Adaptive Workspace',
+        caption: 'Open multiple notes simultaneously with a modern horizontal tab bar on larger screens.',
+        url: '/bedrock/screenshot-3.jpg',
+        aspectRatio: '9/16'
+      },
+      {
+        id: 'bedrock-ss-4',
+        projectId: 'bedrock',
+        title: 'Markdown Editor with Live Preview',
+        caption: 'Dedicated environment with live preview, split-screen mode, and a swipeable formatting toolbar.',
+        url: '/bedrock/screenshot-4.jpg',
+        aspectRatio: '9/16'
+      },
+      {
+        id: 'bedrock-ss-5',
+        projectId: 'bedrock',
+        title: 'Settings Page',
+        caption: 'The doom, it is always the doom.',
+        url: '/bedrock/screenshot-5.jpg',
         aspectRatio: '9/16'
       }
     ],
     readmePreview: `# Bedrock 📓
-> High-contrast, minimalist monochrome notes editor for Android.
 
-\`\`\`bash
-# Clone the repository
-git clone https://github.com/isaiahscape/bedrock.git
-\`\`\`
+**Bedrock** is a high-contrast, minimalist monochrome notes editor for Android. Built with a focus on simplicity and distraction-free writing, it combines the lightweight feel of Google Keep with powerful Markdown support, structured scheduling, and local-first security.
 
-## Architecture & Tech Stack
-- **UI**: Jetpack Compose (Material 3)
+## Features
+- **Minimalist Design**: A pure monochrome aesthetic using Material 3, with premium Pixel Launcher-style expansion animations.
+- **Adaptive Workspace**: Intelligent layout that scales from single-pane mobile to a Two-pane Desktop/Tablet view.
+- **Multi-Note Tabs**: Open multiple notes simultaneously with a modern horizontal tab bar.
+- **Floating Profile Hub**: Central command center for identity and app-wide utilities.
+- **In-Note Search**: Find words or phrases instantly with live visual highlighting.
+- **Versatile Editing Modes**: Plain Notes, Markdown Editor with live preview, and Structured To-do Lists.
+- **Rich Image Support**: Insert images from gallery with resizable handles and reorderable controls.
+- **Universal Scheduler**: Set Date & Time reminders with system notifications that deep-link to notes.
+- **Safe Trash Bin**: Notes moved to trash are kept for 30 days before automatic deletion.
+- **Master Password Security**: Full alphanumeric Master Password with local SHA-256 encryption.
+- **Encrypted Backup Hub**: Create secure local backups encrypted with your Master Password.
+- **Developer Mode**: Hidden in-app debugging tools activated via a secret 7-tap sequence.
+
+## Tech Stack
+- **UI**: Jetpack Compose (Material 3 Expressive)
 - **Architecture**: MVVM + Repository Pattern
-- **Persistence**: Room Database (SQLite)
-- **Navigation**: Jetpack Navigation Compose
+- **Persistence**: Room Database (SQLite v5) + DataStore
+- **Adaptive Layout**: Material 3 Adaptive Layouts + WindowSizeClass
+- **Image Loading**: Coil
+- **Scheduling**: AlarmManager + BroadcastReceivers
+- **Storage**: MediaStore API (Scoped Storage)
+- **Security**: SHA-256 Hashing + XOR Content Obfuscation
+- **Navigation**: Jetpack Navigation Compose with Shared Transitions
 - **Asynchrony**: Kotlin Coroutines & Flow
 - **Testing**: Robolectric & Roborazzi
+
+## Getting Started
+\`\`\`bash
+git clone https://github.com/isaiahscape/bedrock.git
+\`\`\`
+- **Prerequisites**: Android Studio Ladybug+, Android SDK 35+, Java 17+
 `,
     installation: {
       git: 'git clone https://github.com/isaiahscape/bedrock.git',
@@ -89,9 +142,9 @@ git clone https://github.com/isaiahscape/bedrock.git
       {
         id: 'materialexp-ss-1',
         projectId: 'materialexp',
-        title: 'Material Explorer File List',
+        title: 'Overseer File List',
         caption: 'Browse internal storage with dynamic view modes.',
-        url: 'https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&w=1200&q=80',
+        url: '',
         aspectRatio: '9/16'
       },
       {
@@ -99,7 +152,7 @@ git clone https://github.com/isaiahscape/bedrock.git
         projectId: 'materialexp',
         title: 'Storage Analyzer',
         caption: 'Gain insight into storage distribution with interactive category breakdowns.',
-        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+        url: '',
         aspectRatio: '9/16'
       }
     ],
@@ -148,7 +201,7 @@ git clone https://github.com/isaiahscape/materialexp.git
         projectId: 'anchor',
         title: 'Anchor Budget Dashboard Overview',
         caption: 'Interactive expenditure summary displaying monthly spending, category budget progress bars, and recent transaction log.',
-        url: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80',
+        url: '',
         aspectRatio: '16/9'
       },
       {
@@ -156,7 +209,7 @@ git clone https://github.com/isaiahscape/materialexp.git
         projectId: 'anchor',
         title: 'Financial Analytics & Category Pie Chart',
         caption: 'Category expenditure distribution, daily spending trends, and budget health indicators.',
-        url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+        url: '',
         aspectRatio: '16/9'
       }
     ],
