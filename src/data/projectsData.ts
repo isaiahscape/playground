@@ -53,7 +53,7 @@ export const PROJECTS_DATA: Record<string, FOSSProject> = {
         projectId: 'bedrock',
         title: 'Multi-Note Tabs & Adaptive Workspace',
         caption: 'Open multiple notes simultaneously with a modern horizontal tab bar on larger screens.',
-        url: '/bedrock/screenshot-3.jpg',
+        url: '/bedrock/screenshot-5.jpg',
         aspectRatio: '9/16'
       },
       {
@@ -69,7 +69,7 @@ export const PROJECTS_DATA: Record<string, FOSSProject> = {
         projectId: 'bedrock',
         title: 'Settings Page',
         caption: 'The doom, it is always the doom.',
-        url: '/bedrock/screenshot-5.jpg',
+        url: '/bedrock/screenshot-3.jpg',
         aspectRatio: '9/16'
       }
     ],
