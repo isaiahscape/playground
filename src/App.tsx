@@ -54,7 +54,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onNavigate={navigate} />
 
       {/* Command Palette (Cmd+K) */}
       <CommandMenu

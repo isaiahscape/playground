@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { MdOpenInNew as ExternalLink, MdFavorite as Heart, MdContentCopy as Copy, MdCheck as Check, MdTerminal as Terminal, MdCode as Code2 } from 'react-icons/md';
 import { FaGithub as Github } from 'react-icons/fa';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate?: (path: string) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyDomain = () => {
@@ -60,19 +64,19 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-1.5 text-zinc-600 dark:text-zinc-400">
               <li>
-                <a href="#/anchor" className="hover:text-red-500 transition">
+                <button onClick={() => onNavigate?.('/anchor')} className="hover:text-red-500 transition text-left">
                   isaiahscape/anchor (Expense Tracker)
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#/bedrock" className="hover:text-red-500 transition">
+                <button onClick={() => onNavigate?.('/bedrock')} className="hover:text-red-500 transition text-left">
                   isaiahscape/bedrock (Notes)
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#/materialexp" className="hover:text-red-500 transition">
+                <button onClick={() => onNavigate?.('/materialexp')} className="hover:text-red-500 transition text-left">
                   isaiahscape/materialexp (Explorer)
-                </a>
+                </button>
               </li>
             </ul>
           </div>

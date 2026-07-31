@@ -1,30 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export function useRouter() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
     if (typeof window === 'undefined') return '/';
-    const hash = window.location.hash.replace('#', '');
-    if (hash) return hash.startsWith('/') ? hash : `/${hash}`;
     return window.location.pathname || '/';
   });
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      const path = hash ? (hash.startsWith('/') ? hash : `/${hash}`) : '/';
-      setCurrentPath(path);
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const navigate = (path: string) => {
+  const navigate = useCallback((path: string) => {
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    window.location.hash = cleanPath;
+    window.history.pushState(null, '', cleanPath);
     setCurrentPath(cleanPath);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, []);
 
   return { currentPath, navigate };
 }
