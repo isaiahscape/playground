@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MdSearch as Search, MdTerminal as Terminal, MdLayers as Layers, MdWallet as Wallet, MdCode as Code, MdCheck as Check, MdContentCopy as Copy, MdOpenInNew as ExternalLink, MdInsights as Activity, MdImage as Image, MdInfo as Info } from 'react-icons/md';
+import { MdSearch as Search, MdTerminal as Terminal, MdLayers as Layers, MdWallet as Wallet, MdCode as Code, MdCheck as Check, MdContentCopy as Copy, MdOpenInNew as ExternalLink, MdInsights as Activity, MdImage as Image, MdInfo as Info, MdGroups as Contacts } from 'react-icons/md';
 import { PROJECTS_DATA } from '../data/projectsData';
 
 interface CommandMenuProps {
@@ -141,6 +141,13 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
             >
               <Info className="w-4 h-4 text-red-500" />
               <span>About Isaiah's Manifesto</span>
+            </div>
+            <div
+              onClick={() => handleSelect('/contacts')}
+              className="flex items-center gap-2.5 p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 rounded-lg cursor-pointer text-xs font-medium text-zinc-700 dark:text-zinc-300"
+            >
+              <Contacts className="w-4 h-4 text-red-500" />
+              <span>Contacts & Discord Communities</span>
             </div>
           </div>
         </div>

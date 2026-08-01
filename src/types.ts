@@ -25,6 +25,7 @@ export interface FOSSProject {
   techStack: string[];
   githubUrl: string;
   wikiUrl?: string;
+  discordUrl?: string;
   cloneUrl: string;
   features: string[];
   defaultScreenshots: Screenshot[];

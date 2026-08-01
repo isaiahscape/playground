@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { PROJECTS_DATA } from '../../data/projectsData';
 import { ProjectCard } from '../ProjectCard';
 import { BuildBadge } from '../BuildBadge';
-import { MdTerminal as Terminal, MdLayers as Layers, MdWallet as Wallet, MdCode as Code2, MdAutoAwesome as Sparkles, MdCheckCircleOutline as CheckCircle2, MdVerifiedUser as MdVerifiedUser, MdInsights as Activity, MdSearch as Search, MdArrowForward as ArrowRight, MdDownload as Download, MdContentCopy as Copy, MdCheck as Check, MdImage as ImageIcon } from 'react-icons/md';
-import { FaGithub as Github } from 'react-icons/fa';
+import { DiscordButton } from '../DiscordButton';
+import { MdTerminal as Terminal, MdLayers as Layers, MdWallet as Wallet, MdCode as Code2, MdAutoAwesome as Sparkles, MdCheckCircleOutline as CheckCircle2, MdVerifiedUser as MdVerifiedUser, MdInsights as Activity, MdSearch as Search, MdArrowForward as ArrowRight, MdDownload as Download, MdContentCopy as Copy, MdCheck as Check, MdImage as ImageIcon, MdGroups as Groups } from 'react-icons/md';
+import { FaGithub as Github, FaDiscord as Discord } from 'react-icons/fa';
 
 interface HomePageProps {
   onNavigate: (path: string) => void;
@@ -121,6 +122,91 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Try clearing your search query.</p>
           </div>
         )}
+      </section>
+
+      {/* Discord Community Section */}
+      <section className="space-y-6 pt-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <Discord className="w-5 h-5 text-[#5865F2]" />
+              <h2 className="text-2xl font-extrabold text-zinc-900 dark:text-zinc-100 tracking-tight">
+                Discord Communities
+              </h2>
+            </div>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+              Join the community servers to discuss projects, get support, and stay updated.
+            </p>
+          </div>
+          <button
+            onClick={() => onNavigate('/contacts')}
+            className="inline-flex items-center gap-1.5 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-3 py-2 rounded-xl text-xs transition border border-zinc-200 dark:border-zinc-700/60 shrink-0"
+          >
+            <Groups className="w-3.5 h-3.5 text-red-400" />
+            <span>All Contacts</span>
+          </button>
+        </div>
+
+        {/* Discord Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* [SN] Anomaly */}
+          <div className="bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-[#5865F2]/50 transition-all duration-200 shadow-sm flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-[#5865F2]/10 border border-[#5865F2]/20 flex items-center justify-center shrink-0">
+                  <Discord className="w-6 h-6 text-[#5865F2]" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
+                    [SN] Anomaly
+                  </h3>
+                  <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+                    discord.gg/Y3mjXM9NvK
+                  </p>
+                </div>
+              </div>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                Join the [SN] Anomaly community server for discussions, updates, and community support.
+              </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/80">
+              <DiscordButton
+                href="https://discord.gg/Y3mjXM9NvK"
+                label="Join Server"
+                className="w-full justify-center"
+              />
+            </div>
+          </div>
+
+          {/* Moss Laboratories Community */}
+          <div className="bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-[#5865F2]/50 transition-all duration-200 shadow-sm flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-[#5865F2]/10 border border-[#5865F2]/20 flex items-center justify-center shrink-0">
+                  <Discord className="w-6 h-6 text-[#5865F2]" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
+                    Moss Laboratories Community
+                  </h3>
+                  <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+                    discord.gg/GcMssBpa6A
+                  </p>
+                </div>
+              </div>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                Join the Moss Laboratories Community server for collaboration, development discussions, and project updates.
+              </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/80">
+              <DiscordButton
+                href="https://discord.gg/GcMssBpa6A"
+                label="Join Server"
+                className="w-full justify-center"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Domain notice bar */}

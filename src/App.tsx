@@ -8,6 +8,7 @@ import { ProjectDetailPage } from './components/pages/ProjectDetailPage';
 import { ScreenshotsPage } from './components/pages/ScreenshotsPage';
 import { StatusPage } from './components/pages/StatusPage';
 import { AboutPage } from './components/pages/AboutPage';
+import { ContactsPage } from './components/pages/ContactsPage';
 import { Footer } from './components/Footer';
 import { ProjectId } from './types';
 
@@ -30,6 +31,8 @@ export default function App() {
         return <StatusPage />;
       case '/about':
         return <AboutPage />;
+      case '/contacts':
+        return <ContactsPage />;
       case '/':
       default:
         return <HomePage onNavigate={navigate} />;

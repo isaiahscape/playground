@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MdTerminal as Terminal, MdLayers as Layers, MdWallet as Wallet, MdSearch as Search, MdWbSunny as MdWbSunny, MdNightsStay as MdNightsStay, MdMenu as MdMenu, MdClose as MdClose, MdInsights as Activity, MdImage as ImageIcon, MdInfo as Info, MdCode as Code2, MdAutoAwesome as Sparkles } from 'react-icons/md';
+import { MdTerminal as Terminal, MdLayers as Layers, MdWallet as Wallet, MdSearch as Search, MdWbSunny as MdWbSunny, MdNightsStay as MdNightsStay, MdMenu as MdMenu, MdClose as MdClose, MdInsights as Activity, MdImage as ImageIcon, MdInfo as Info, MdCode as Code2, MdAutoAwesome as Sparkles, MdGroups as Contacts } from 'react-icons/md';
 import { FaGithub as Github } from 'react-icons/fa';
 import { ThemeMode } from '../types';
 
@@ -24,6 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'Overview', path: '/', icon: Code2 },
     { label: 'Status', path: '/status', icon: Activity },
     { label: 'About', path: '/about', icon: Info },
+    { label: 'Contacts', path: '/contacts', icon: Contacts },
   ];
 
   const handleNavClick = (path: string) => {
