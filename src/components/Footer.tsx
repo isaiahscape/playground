@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MdOpenInNew as ExternalLink, MdFavorite as Heart, MdContentCopy as Copy, MdCheck as Check, MdTerminal as Terminal, MdCode as Code2 } from 'react-icons/md';
+import React from 'react';
+import { MdOpenInNew as ExternalLink, MdFavorite as Heart, MdTerminal as Terminal, MdCode as Code2 } from 'react-icons/md';
 import { FaGithub as Github } from 'react-icons/fa';
 
 interface FooterProps {
@@ -7,14 +7,6 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyDomain = () => {
-    navigator.clipboard.writeText('https://play.isaiahthings.me');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <footer className="w-full bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800/80 transition-colors py-10 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -36,13 +28,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           <div className="flex items-center gap-3">
-            <button
-              onClick={handleCopyDomain}
+            <a
+              href="https://isaiahthings.me"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-mono text-xs px-3 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 transition"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-red-500" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>play.isaiahthings.me</span>
-            </button>
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>isaiahthings.me</span>
+            </a>
 
             <a
               href="https://github.com/isaiahscape"
