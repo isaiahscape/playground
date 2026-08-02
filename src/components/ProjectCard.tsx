@@ -48,7 +48,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   {project.name}
                 </h3>
                 <span className="text-xs font-mono text-zinc-400 font-normal">

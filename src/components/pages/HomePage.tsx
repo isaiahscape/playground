@@ -183,7 +183,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
                   <Discord className="w-6 h-6 text-[#8B5CF6]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
                     [SN] Anomaly
                   </h3>
                   <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
@@ -212,7 +212,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
                   <Discord className="w-6 h-6 text-[#8B5CF6]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
                     Moss Laboratories Community
                   </h3>
                   <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
@@ -240,12 +240,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <MdVerifiedUser className="w-5 h-5 text-purple-500" />
-            <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 font-mono">
-              Canonical Location: play.isaiahthings.me
+            <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100">
+              Canonical Location
             </h3>
           </div>
           <p className="text-xs text-zinc-500 dark:text-zinc-400">
-            All apps, screenshots, release artifacts, and build badges are automatically updated from the <code className="font-mono text-purple-600 dark:text-purple-400">isaiahscape</code> GitHub organization.
+            All apps, screenshots, release artifacts, and build badges are automatically updated from the GitHub organization.
           </p>
         </div>
 
