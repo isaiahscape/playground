@@ -20,7 +20,7 @@ export const DiscordButton: React.FC<DiscordButtonProps> = ({
   const sizeClasses = size === 'sm' ? 'px-3 py-1.5 text-xs' : 'px-4 py-2.5 text-xs';
   const variantClasses =
     variant === 'solid'
-      ? 'bg-[#5865F2] hover:bg-[#4752C4] text-white'
+      ? 'bg-[#8B5CF6] hover:bg-[#7C3AED] text-white'
       : 'bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700/60';
 
   return (

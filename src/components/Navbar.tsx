@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/60'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-red-400 dark:text-red-600' : ''}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-purple-400 dark:text-purple-600' : ''}`} />
                 <span>{item.label}</span>
               </button>
             );
@@ -99,7 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition border border-zinc-200 dark:border-zinc-800"
             title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           >
-            {isDark ? <MdWbSunny className="w-4 h-4 text-red-400" /> : <MdNightsStay className="w-4 h-4 text-red-600" />}
+            {isDark ? <MdWbSunny className="w-4 h-4 text-purple-400" /> : <MdNightsStay className="w-4 h-4 text-purple-600" />}
           </button>
 
           {/* GitHub Repository External Link */}
@@ -136,12 +136,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleNavClick(item.path)}
                 className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition ${
                   isActive
-                    ? 'bg-red-500/10 text-red-600 dark:text-red-400 font-semibold'
+                    ? 'bg-purple-500/10 text-purple-600 dark:text-purple-400 font-semibold'
                     : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <Icon className="w-4 h-4 text-red-500" />
+                  <Icon className="w-4 h-4 text-purple-500" />
                   <span>{item.label}</span>
                 </div>
               </button>

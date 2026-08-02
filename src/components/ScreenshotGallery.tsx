@@ -89,7 +89,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
     <div className="space-y-6">
       {/* Toast notification */}
       {notification && (
-        <div className="fixed bottom-5 right-5 z-50 bg-red-600 text-white font-medium text-xs px-4 py-2.5 rounded-xl shadow-xl flex items-center gap-2 animate-in fade-in slide-in-from-bottom-2">
+        <div className="fixed bottom-5 right-5 z-50 bg-purple-600 text-white font-medium text-xs px-4 py-2.5 rounded-xl shadow-xl flex items-center gap-2 animate-in fade-in slide-in-from-bottom-2">
           <CheckCircle2 className="w-4 h-4" />
           <span>{notification}</span>
         </div>
@@ -112,7 +112,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
             onClick={() => setActiveTab('anchor')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition shrink-0 ${
               activeTab === 'anchor'
-                ? 'bg-red-600 text-white'
+                ? 'bg-purple-600 text-white'
                 : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
             }`}
           >
@@ -123,7 +123,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
             onClick={() => setActiveTab('bedrock')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition shrink-0 ${
               activeTab === 'bedrock'
-                ? 'bg-red-600 text-white'
+                ? 'bg-purple-600 text-white'
                 : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
             }`}
           >
@@ -134,7 +134,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
             onClick={() => setActiveTab('materialexp')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition shrink-0 ${
               activeTab === 'materialexp'
-                ? 'bg-red-600 text-white'
+                ? 'bg-purple-600 text-white'
                 : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
             }`}
           >
@@ -145,7 +145,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
 
         <button
           onClick={() => setShowMdUploadModal(true)}
-          className="inline-flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-xs shrink-0"
+          className="inline-flex items-center justify-center gap-1.5 bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-xs shrink-0"
         >
           <MdAdd className="w-4 h-4" />
           <span>Add Custom Screenshot</span>
@@ -160,14 +160,14 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
             <div
               key={item.id}
               onClick={() => setActiveLightbox(item)}
-              className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-200 shadow-sm hover:shadow-lg cursor-pointer flex flex-col justify-between"
+              className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-200 shadow-sm hover:shadow-lg cursor-pointer flex flex-col justify-between"
             >
               {/* Browser Header Chrome */}
               <div className="bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800/80 px-3 py-2 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-purple-500/80 inline-block" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-purple-500/80 inline-block" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-purple-500/80 inline-block" />
                   <span className="ml-2 font-mono text-[11px] text-zinc-500 dark:text-zinc-400 truncate max-w-[200px]">
                     play.isaiahthings.me/{item.projectId}
                   </span>
@@ -175,7 +175,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
 
                 <div className="flex items-center gap-2">
                   {item.isUserUploaded && (
-                    <span className="text-[10px] font-bold bg-red-500/10 text-red-600 dark:text-red-400 px-1.5 py-0.5 rounded border border-red-500/20">
+                    <span className="text-[10px] font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 px-1.5 py-0.5 rounded border border-purple-500/20">
                       User MdUploaded
                     </span>
                   )}
@@ -199,7 +199,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
                   {item.isUserUploaded && (
                     <button
                       onClick={(e) => handleDeleteScreenshot(item.id, e)}
-                      className="bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs p-2 rounded-lg transition"
+                      className="bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs p-2 rounded-lg transition"
                       title="Delete uploaded screenshot"
                     >
                       <MdDelete className="w-4 h-4" />
@@ -231,7 +231,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
           </p>
           <button
             onClick={() => setShowMdUploadModal(true)}
-            className="inline-flex items-center gap-1.5 bg-red-600 text-white font-semibold text-xs px-4 py-2 rounded-xl"
+            className="inline-flex items-center gap-1.5 bg-purple-600 text-white font-semibold text-xs px-4 py-2 rounded-xl"
           >
             <MdAdd className="w-4 h-4" /> MdUpload Screenshot
           </button>
@@ -244,7 +244,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
           <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl w-full max-w-lg p-6 animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3 mb-4">
               <div className="flex items-center gap-2">
-                <MdUpload className="w-5 h-5 text-red-500" />
+                <MdUpload className="w-5 h-5 text-purple-500" />
                 <h3 className="font-bold text-lg text-zinc-900 dark:text-zinc-100">MdUpload App Screenshot</h3>
               </div>
               <button
@@ -307,7 +307,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
                   accept="image/*"
                   required
                   onChange={handleImageFileChange}
-                  className="w-full text-xs text-zinc-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-red-500/10 file:text-red-600 hover:file:bg-red-500/20"
+                  className="w-full text-xs text-zinc-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-purple-500/10 file:text-purple-600 hover:file:bg-purple-500/20"
                 />
               </div>
 
@@ -328,7 +328,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
                 <button
                   type="submit"
                   disabled={!uploadPreview}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-red-600 text-white hover:bg-red-500 disabled:opacity-50"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-50"
                 >
                   Save Screenshot
                 </button>
@@ -349,7 +349,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
             className="max-w-5xl w-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95"
           >
             <div className="bg-zinc-950 p-3 px-4 border-b border-zinc-800 flex items-center justify-between text-xs text-zinc-300 font-mono">
-              <span className="font-bold text-red-400">{activeLightbox.title}</span>
+              <span className="font-bold text-purple-400">{activeLightbox.title}</span>
               <button
                 onClick={() => setActiveLightbox(null)}
                 className="p-1 hover:bg-zinc-800 rounded text-zinc-400 hover:text-white"

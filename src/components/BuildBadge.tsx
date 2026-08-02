@@ -39,7 +39,7 @@ export const BuildBadge: React.FC<CommitBadgeProps> = ({ repoFullName, compact =
           <span className="font-semibold text-xs text-zinc-900 dark:text-zinc-100">Latest Commit</span>
         </div>
         {!loading && (
-          <span className="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20 truncate max-w-[120px]">
+          <span className="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 truncate max-w-[120px]">
             {commit?.branch}
           </span>
         )}

@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-zinc-100 dark:border-zinc-800/80">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <div className="w-6 h-6 rounded-lg bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-xs">
+              <div className="w-6 h-6 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-xs">
                 <Terminal className="w-3.5 h-3.5" />
               </div>
               <span className="font-bold text-base text-zinc-900 dark:text-zinc-100 font-mono">
@@ -58,17 +58,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1.5 text-zinc-600 dark:text-zinc-400">
               <li>
-                <button onClick={() => onNavigate?.('/anchor')} className="hover:text-red-500 transition text-left">
+                <button onClick={() => onNavigate?.('/anchor')} className="hover:text-purple-500 transition text-left">
                   isaiahscape/anchor (Expense Tracker)
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate?.('/bedrock')} className="hover:text-red-500 transition text-left">
+                <button onClick={() => onNavigate?.('/bedrock')} className="hover:text-purple-500 transition text-left">
                   isaiahscape/bedrock (Notes)
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate?.('/materialexp')} className="hover:text-red-500 transition text-left">
+                <button onClick={() => onNavigate?.('/materialexp')} className="hover:text-purple-500 transition text-left">
                   isaiahscape/materialexp (Explorer)
                 </button>
               </li>
@@ -91,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Information
             </h4>
             <p className="text-zinc-500 dark:text-zinc-400 text-xs leading-relaxed">
-              Hosted on <code className="text-red-600 dark:text-red-400 font-mono font-bold">Vercel</code> with shenanigans, shadcn/UI components, and Github API integration.
+              Hosted on <code className="text-purple-600 dark:text-purple-400 font-mono font-bold">Vercel</code> with shenanigans, shadcn/UI components, and Github API integration.
             </p>
           </div>
         </div>
@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <p>© {new Date().getFullYear()} Isaiah (isaiahscape). All software licensed under open-source terms.</p>
           <div className="flex items-center gap-1 font-mono text-[11px]">
             <span>Crafted with</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" />
+            <Heart className="w-3.5 h-3.5 text-purple-500 fill-purple-500 inline" />
             <span>for the FOSS community</span>
           </div>
         </div>

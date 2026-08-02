@@ -17,13 +17,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
   const getProjectIcon = () => {
     switch (project.id) {
       case 'anchor':
-        return <Wallet className="w-6 h-6 text-red-500" />;
+        return <Wallet className="w-6 h-6 text-purple-500" />;
       case 'materialexp':
-        return <Layers className="w-6 h-6 text-red-500" />;
+        return <Layers className="w-6 h-6 text-purple-500" />;
       case 'bedrock':
-        return <Book className="w-6 h-6 text-red-500" />;
+        return <Book className="w-6 h-6 text-purple-500" />;
       default:
-        return <Terminal className="w-6 h-6 text-red-500" />;
+        return <Terminal className="w-6 h-6 text-purple-500" />;
     }
   };
 
@@ -37,7 +37,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
   return (
     <div 
       onClick={() => onNavigate(`/${project.id}`)}
-      className="group relative bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-red-500/50 dark:hover:border-red-500/40 transition-all duration-200 shadow-sm hover:shadow-xl hover:shadow-red-500/5 cursor-pointer flex flex-col justify-between"
+      className="group relative bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-purple-500/50 dark:hover:border-purple-500/40 transition-all duration-200 shadow-sm hover:shadow-xl hover:shadow-purple-500/5 cursor-pointer flex flex-col justify-between"
     >
       <div>
         {/* Header: Title, Repo, Badges */}
@@ -48,7 +48,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   {project.name}
                 </h3>
                 <span className="text-xs font-mono text-zinc-400 font-normal">
@@ -63,7 +63,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
 
           <div className="flex items-center gap-1 shrink-0">
             <span className="inline-flex items-center gap-1 text-xs font-mono font-medium text-zinc-600 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 px-2.5 py-1 rounded-md">
-              <Star className="w-3.5 h-3.5 text-red-500 fill-red-500" />
+              <Star className="w-3.5 h-3.5 text-purple-500 fill-purple-500" />
               <span>{stats.stars}</span>
             </span>
             <span className="inline-flex items-center gap-1 text-xs font-mono font-medium text-zinc-600 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 px-2 py-1 rounded-md">
@@ -113,7 +113,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
             title="Copy Clone Command"
           >
             {copiedClone ? (
-              <Check className="w-3.5 h-3.5 text-red-500" />
+              <Check className="w-3.5 h-3.5 text-purple-500" />
             ) : (
               <Copy className="w-3.5 h-3.5" />
             )}

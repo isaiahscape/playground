@@ -9,7 +9,7 @@ export const ContactsPage: React.FC = () => {
       
       {/* Header */}
       <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl">
-        <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-semibold mb-2">
+        <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">
           <Mail className="w-4 h-4" />
           <span>play.isaiahthings.me/contacts</span>
         </div>
@@ -24,7 +24,7 @@ export const ContactsPage: React.FC = () => {
       {/* Discord Communities */}
       <div className="space-y-6">
         <div className="flex items-center gap-2">
-          <Discord className="w-5 h-5 text-[#5865F2]" />
+          <Discord className="w-5 h-5 text-[#8B5CF6]" />
           <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono">
             Discord Communities
           </h2>
@@ -34,8 +34,8 @@ export const ContactsPage: React.FC = () => {
         <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 space-y-3 shadow-xs">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-[#5865F2]/10 border border-[#5865F2]/20 flex items-center justify-center shrink-0">
-                <Discord className="w-6 h-6 text-[#5865F2]" />
+              <div className="w-12 h-12 rounded-xl bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center shrink-0">
+                <Discord className="w-6 h-6 text-[#8B5CF6]" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
@@ -61,8 +61,8 @@ export const ContactsPage: React.FC = () => {
         <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 space-y-3 shadow-xs">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-[#5865F2]/10 border border-[#5865F2]/20 flex items-center justify-center shrink-0">
-                <Discord className="w-6 h-6 text-[#5865F2]" />
+              <div className="w-12 h-12 rounded-xl bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center shrink-0">
+                <Discord className="w-6 h-6 text-[#8B5CF6]" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
@@ -88,7 +88,7 @@ export const ContactsPage: React.FC = () => {
       {/* Other Contact Channels */}
       <div className="space-y-6">
         <div className="flex items-center gap-2">
-          <Groups className="w-5 h-5 text-red-500" />
+          <Groups className="w-5 h-5 text-purple-500" />
           <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono">
             Other Channels
           </h2>

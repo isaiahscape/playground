@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-zinc-50 text-zinc-900 antialiased selection:bg-red-500/20 selection:text-red-700 dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-red-500/30 dark:selection:text-red-300;
+    @apply bg-zinc-50 text-zinc-900 antialiased selection:bg-purple-500/20 selection:text-purple-700 dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-purple-500/30 dark:selection:text-purple-300;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }

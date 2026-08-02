@@ -7,7 +7,7 @@ export const ScreenshotsPage: React.FC = () => {
     <div className="space-y-8">
       {/* Header */}
       <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl">
-        <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-semibold mb-2">
+        <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">
           <ImageIcon className="w-4 h-4" />
           <span>play.isaiahthings.me/screenshots</span>
         </div>

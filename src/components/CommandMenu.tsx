@@ -87,7 +87,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
                 className="group flex items-center justify-between p-2.5 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 rounded-lg cursor-pointer transition"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-xs">
+                  <div className="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-xs">
                     {project.id === 'anchor' ? <Wallet className="w-4 h-4" /> : project.id === 'bedrock' ? <Terminal className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
                   </div>
                   <div>
@@ -108,7 +108,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
                     className="p-1 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
                     title="Copy Git Clone command"
                   >
-                    {copiedText === project.cloneUrl ? <Check className="w-3.5 h-3.5 text-red-500" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copiedText === project.cloneUrl ? <Check className="w-3.5 h-3.5 text-purple-500" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                   <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
                 </div>
@@ -125,28 +125,28 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
               onClick={() => handleSelect('/anchor')}
               className="flex items-center gap-2.5 p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 rounded-lg cursor-pointer text-xs font-medium text-zinc-700 dark:text-zinc-300"
             >
-              <Wallet className="w-4 h-4 text-red-500" />
+              <Wallet className="w-4 h-4 text-purple-500" />
               <span>Anchor: Expense Tracker (Coming Soon)</span>
             </div>
             <div
               onClick={() => handleSelect('/status')}
               className="flex items-center gap-2.5 p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 rounded-lg cursor-pointer text-xs font-medium text-zinc-700 dark:text-zinc-300"
             >
-              <Activity className="w-4 h-4 text-red-500" />
+              <Activity className="w-4 h-4 text-purple-500" />
               <span>View Commit Status Matrix</span>
             </div>
             <div
               onClick={() => handleSelect('/about')}
               className="flex items-center gap-2.5 p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 rounded-lg cursor-pointer text-xs font-medium text-zinc-700 dark:text-zinc-300"
             >
-              <Info className="w-4 h-4 text-red-500" />
+              <Info className="w-4 h-4 text-purple-500" />
               <span>About Isaiah's Manifesto</span>
             </div>
             <div
               onClick={() => handleSelect('/contacts')}
               className="flex items-center gap-2.5 p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 rounded-lg cursor-pointer text-xs font-medium text-zinc-700 dark:text-zinc-300"
             >
-              <Contacts className="w-4 h-4 text-red-500" />
+              <Contacts className="w-4 h-4 text-purple-500" />
               <span>Contacts & Discord Communities</span>
             </div>
           </div>

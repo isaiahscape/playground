@@ -11,7 +11,7 @@ export const StatusPage: React.FC = () => {
       {/* Header */}
       <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-semibold mb-2">
+          <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">
             <Activity className="w-4 h-4" />
             <span>play.isaiahthings.me/status</span>
           </div>
@@ -24,10 +24,10 @@ export const StatusPage: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-3 bg-zinc-800/80 border border-zinc-700 p-4 rounded-2xl shrink-0 font-mono">
-          <div className="w-3 h-3 rounded-full bg-red-500 animate-ping" />
+          <div className="w-3 h-3 rounded-full bg-purple-500 animate-ping" />
           <div>
             <span className="block text-[10px] text-zinc-400 uppercase">Overall System Status</span>
-            <span className="text-sm font-bold text-red-400">All Pipelines Operational</span>
+            <span className="text-sm font-bold text-purple-400">All Pipelines Operational</span>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ export const StatusPage: React.FC = () => {
                 </span>
               </div>
 
-              <span className="text-xs font-mono text-red-600 dark:text-red-400 font-semibold flex items-center gap-1">
+              <span className="text-xs font-mono text-purple-600 dark:text-purple-400 font-semibold flex items-center gap-1">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Build Passing</span>
               </span>

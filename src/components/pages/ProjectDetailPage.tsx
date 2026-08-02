@@ -27,10 +27,10 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
 
   const getIcon = () => {
     switch (projectId) {
-      case 'anchor': return <Wallet className="w-8 h-8 text-red-500" />;
-      case 'materialexp': return <Layers className="w-8 h-8 text-red-500" />;
-      case 'bedrock': return <Book className="w-8 h-8 text-red-500" />;
-      default: return <Terminal className="w-8 h-8 text-red-500" />;
+      case 'anchor': return <Wallet className="w-8 h-8 text-purple-500" />;
+      case 'materialexp': return <Layers className="w-8 h-8 text-purple-500" />;
+      case 'bedrock': return <Book className="w-8 h-8 text-purple-500" />;
+      default: return <Terminal className="w-8 h-8 text-purple-500" />;
     }
   };
 
@@ -78,7 +78,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
               {/* Stats & License Pills */}
               <div className="flex items-center gap-2 flex-wrap mt-4 text-xs font-mono">
                 <span className="inline-flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 px-2.5 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700">
-                  <Star className="w-3.5 h-3.5 text-red-500 fill-red-500" />
+                  <Star className="w-3.5 h-3.5 text-purple-500 fill-purple-500" />
                   <span>{stats.stars} Stars</span>
                 </span>
                 <span className="inline-flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 px-2.5 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700">
@@ -86,7 +86,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
                   <span>{stats.forks} Forks</span>
                 </span>
                 <span className="inline-flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 px-2.5 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700">
-                  <Shield className="w-3.5 h-3.5 text-red-500" />
+                  <Shield className="w-3.5 h-3.5 text-purple-500" />
                   <span>{project.license} License</span>
                 </span>
                 <span className="inline-flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 px-2.5 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700">
@@ -127,7 +127,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
                     window.open(`${project.githubUrl}/releases/latest`, '_blank');
                   }
                 }}
-                className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition shadow-xs"
+                className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition shadow-xs"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Latest Release</span>
@@ -150,7 +150,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
               onClick={handleCopyClone}
               className="inline-flex items-center justify-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 font-mono text-xs px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 transition"
             >
-              {copiedClone ? <Check className="w-4 h-4 text-red-500" /> : <Copy className="w-4 h-4" />}
+              {copiedClone ? <Check className="w-4 h-4 text-purple-500" /> : <Copy className="w-4 h-4" />}
               <span>{copiedClone ? 'Clone Command Copied' : 'git clone'}</span>
             </button>
           </div>
@@ -164,7 +164,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
           onClick={() => setActiveTab('readme')}
           className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold border-b-2 transition shrink-0 ${
             activeTab === 'readme'
-              ? 'border-red-500 text-red-600 dark:text-red-400'
+              ? 'border-purple-500 text-purple-600 dark:text-purple-400'
               : 'border-transparent text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
           }`}
         >
@@ -176,7 +176,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
           onClick={() => setActiveTab('screenshots')}
           className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold border-b-2 transition shrink-0 ${
             activeTab === 'screenshots'
-              ? 'border-red-500 text-red-600 dark:text-red-400'
+              ? 'border-purple-500 text-purple-600 dark:text-purple-400'
               : 'border-transparent text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
           }`}
         >
@@ -188,7 +188,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
           onClick={() => setActiveTab('ci')}
           className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold border-b-2 transition shrink-0 ${
             activeTab === 'ci'
-              ? 'border-red-500 text-red-600 dark:text-red-400'
+              ? 'border-purple-500 text-purple-600 dark:text-purple-400'
               : 'border-transparent text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
           }`}
         >
@@ -200,7 +200,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
           onClick={() => setActiveTab('install')}
           className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold border-b-2 transition shrink-0 ${
             activeTab === 'install'
-              ? 'border-red-500 text-red-600 dark:text-red-400'
+              ? 'border-purple-500 text-purple-600 dark:text-purple-400'
               : 'border-transparent text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
           }`}
         >
@@ -229,7 +229,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
             <ul className="space-y-2 text-xs text-zinc-600 dark:text-zinc-300">
               {project.features.map((feat, idx) => (
                 <li key={idx} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-purple-500 shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </li>
               ))}
@@ -263,7 +263,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
           {project.installation.git && (
             <div>
               <span className="block text-xs font-semibold text-zinc-500 mb-1">Git Clone</span>
-              <pre className="bg-zinc-950 text-red-400 p-3 rounded-xl font-mono text-xs border border-zinc-800">
+              <pre className="bg-zinc-950 text-purple-400 p-3 rounded-xl font-mono text-xs border border-zinc-800">
                 {project.installation.git}
               </pre>
             </div>
@@ -271,7 +271,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
           {project.installation.npm && (
             <div>
               <span className="block text-xs font-semibold text-zinc-500 mb-1">npm Package</span>
-              <pre className="bg-zinc-950 text-red-400 p-3 rounded-xl font-mono text-xs border border-zinc-800">
+              <pre className="bg-zinc-950 text-purple-400 p-3 rounded-xl font-mono text-xs border border-zinc-800">
                 {project.installation.npm}
               </pre>
             </div>
@@ -279,7 +279,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
           {project.installation.docker && (
             <div>
               <span className="block text-xs font-semibold text-zinc-500 mb-1">Docker Container</span>
-              <pre className="bg-zinc-950 text-red-400 p-3 rounded-xl font-mono text-xs border border-zinc-800">
+              <pre className="bg-zinc-950 text-purple-400 p-3 rounded-xl font-mono text-xs border border-zinc-800">
                 {project.installation.docker}
               </pre>
             </div>

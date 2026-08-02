@@ -36,7 +36,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-5">
           
-          <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs font-mono font-semibold">
+          <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-mono font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Status</span>
             <span className="opacity-50">•</span>
@@ -44,7 +44,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Isaiah's FOSS <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-400">Applications</span>
+            Isaiah's FOSS <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400">Applications</span>
           </h1>
 
           <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-sans">
@@ -55,7 +55,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="flex flex-wrap items-center gap-3 pt-3">
             <button
               onClick={() => onNavigate('/anchor')}
-              className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-400 text-zinc-950 font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-lg"
+              className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-400 text-zinc-950 font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-lg"
             >
               <Wallet className="w-4 h-4" />
               <span>Anchor: Expense Tracker (Coming Soon)</span>
@@ -65,7 +65,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('/status')}
               className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-700"
             >
-              <Activity className="w-4 h-4 text-red-400" />
+              <Activity className="w-4 h-4 text-purple-400" />
               <span>Commit Matrix</span>
             </button>
 
@@ -73,7 +73,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('/screenshots')}
               className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-700"
             >
-              <ImageIcon className="w-4 h-4 text-red-400" />
+              <ImageIcon className="w-4 h-4 text-purple-400" />
               <span>Screenshots & Gallery</span>
             </button>
           </div>
@@ -129,7 +129,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <Discord className="w-5 h-5 text-[#5865F2]" />
+              <Discord className="w-5 h-5 text-[#8B5CF6]" />
               <h2 className="text-2xl font-extrabold text-zinc-900 dark:text-zinc-100 tracking-tight">
                 Discord Communities
               </h2>
@@ -142,7 +142,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             onClick={() => onNavigate('/contacts')}
             className="inline-flex items-center gap-1.5 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-3 py-2 rounded-xl text-xs transition border border-zinc-200 dark:border-zinc-700/60 shrink-0"
           >
-            <Groups className="w-3.5 h-3.5 text-red-400" />
+            <Groups className="w-3.5 h-3.5 text-purple-400" />
             <span>All Contacts</span>
           </button>
         </div>
@@ -150,11 +150,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         {/* Discord Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* [SN] Anomaly */}
-          <div className="bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-[#5865F2]/50 transition-all duration-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-[#8B5CF6]/50 transition-all duration-200 shadow-sm flex flex-col justify-between">
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-[#5865F2]/10 border border-[#5865F2]/20 flex items-center justify-center shrink-0">
-                  <Discord className="w-6 h-6 text-[#5865F2]" />
+                <div className="w-12 h-12 rounded-xl bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center shrink-0">
+                  <Discord className="w-6 h-6 text-[#8B5CF6]" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
@@ -179,11 +179,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
 
           {/* Moss Laboratories Community */}
-          <div className="bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-[#5865F2]/50 transition-all duration-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-[#8B5CF6]/50 transition-all duration-200 shadow-sm flex flex-col justify-between">
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-[#5865F2]/10 border border-[#5865F2]/20 flex items-center justify-center shrink-0">
-                  <Discord className="w-6 h-6 text-[#5865F2]" />
+                <div className="w-12 h-12 rounded-xl bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center shrink-0">
+                  <Discord className="w-6 h-6 text-[#8B5CF6]" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
@@ -213,13 +213,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <section className="bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <MdVerifiedUser className="w-5 h-5 text-red-500" />
+            <MdVerifiedUser className="w-5 h-5 text-purple-500" />
             <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 font-mono">
               Canonical Location: play.isaiahthings.me
             </h3>
           </div>
           <p className="text-xs text-zinc-500 dark:text-zinc-400">
-            All apps, screenshots, release artifacts, and build badges are automatically updated from the <code className="font-mono text-red-600 dark:text-red-400">isaiahscape</code> GitHub organization.
+            All apps, screenshots, release artifacts, and build badges are automatically updated from the <code className="font-mono text-purple-600 dark:text-purple-400">isaiahscape</code> GitHub organization.
           </p>
         </div>
 
@@ -227,7 +227,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           href="https://github.com/isaiahscape"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-xs shrink-0"
+          className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-xs shrink-0"
         >
           <Github className="w-4 h-4" />
           <span>Follow isaiahscape on GitHub</span>
