@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import DotField from './DotField';
 
 type ColorBendsProps = {
   className?: string;
@@ -18,6 +19,8 @@ type ColorBendsProps = {
   iterations?: number;
   intensity?: number;
   bandWidth?: number;
+  dotField?: boolean;
+  dotFieldColors?: [string, string];
 };
 
 const MAX_COLORS = 8 as const;
@@ -48,8 +51,7 @@ void main() {
   vec2 p = vUv * 2.0 - 1.0;
   p += uPointer * uParallax * 0.1;
   vec2 rp = vec2(p.x * uRot.x - p.y * uRot.y, p.x * uRot.y + p.y * uRot.x);
-  float aspect = uCanvas.x / uCanvas.y;
-  vec2 q = vec2(rp.x * max(aspect, 1.0), rp.y / min(aspect, 1.0));
+  vec2 q = vec2(rp.x * (uCanvas.x / uCanvas.y), rp.y);
   q /= max(uScale, 0.0001);
   q /= 0.5 + 0.2 * dot(q, q);
   q += 0.2 * cos(t) - 7.56;
@@ -130,19 +132,21 @@ export default function ColorBends({
   className,
   style,
   rotation = 90,
-  speed = 0.2,
+  speed = 0.5,
   colors = [],
   transparent = true,
   autoRotate = 0,
   scale = 1,
-  frequency = 1,
+  frequency = 1.0,
   warpStrength = 1,
   mouseInfluence = 1,
   parallax = 0.5,
   noise = 0.15,
   iterations = 1,
   intensity = 1.5,
-  bandWidth = 6
+  bandWidth = 0.6,
+  dotField = true,
+  dotFieldColors,
 }: ColorBendsProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -332,5 +336,15 @@ export default function ColorBends({
     };
   }, []);
 
-  return <div ref={containerRef} className={`w-full h-full relative overflow-hidden ${className}`} style={style} />;
+  return (
+    <div ref={containerRef} className={`w-full h-full relative overflow-hidden ${className}`} style={style}>
+      {dotField && (
+        <DotField
+          className="absolute inset-0 z-10 pointer-events-none"
+          gradientFrom={dotFieldColors?.[0] || 'rgba(168, 85, 247, 0.35)'}
+          gradientTo={dotFieldColors?.[1] || 'rgba(180, 151, 207, 0.25)'}
+        />
+      )}
+    </div>
+  );
 }

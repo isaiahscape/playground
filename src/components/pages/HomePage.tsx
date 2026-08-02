@@ -39,18 +39,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
           <ColorBends
             colors={isDark ? ['#8B5CF6', '#7C3AED', '#6D28D9', '#A855F7', '#EC4899'] : ['#A78BFA', '#8B5CF6', '#7C3AED', '#C084FC', '#F0ABFC']}
             rotation={90}
-            speed={0.2}
-            frequency={1}
+            speed={0.5}
+            frequency={1.0}
             warpStrength={1}
             mouseInfluence={1}
             parallax={0.5}
-            noise={0.1}
-            intensity={isDark ? 0.6 : 0.8}
-            bandWidth={6}
+            noise={0.15}
+            intensity={1.3}
+            bandWidth={0.14}
+            iterations={1}
+            dotFieldColors={isDark
+              ? ['rgba(168, 85, 247, 0.35)', 'rgba(180, 151, 207, 0.25)']
+              : ['rgba(168, 85, 247, 0.30)', 'rgba(180, 151, 207, 0.20)']
+            }
             className="w-full h-full"
           />
           <div className={`absolute inset-0 ${isDark ? 'bg-black/40' : 'bg-white/30'}`} />
-          <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
         </div>
         {/* Top progressive blur to blend with navbar above */}
         <div className="absolute top-0 left-0 right-0 h-40 pointer-events-none">

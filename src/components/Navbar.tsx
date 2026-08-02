@@ -49,18 +49,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="w-9 h-9 flex items-center justify-center group-hover:scale-105 transition-transform">
               <img src="/favicon.svg" alt="Logo" className="w-9 h-9 object-contain" />
             </div>
-            <div className="min-w-0">
-              <span 
-                className="font-bold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-zinc-100 truncate hidden sm:block"
-                style={{ fontFamily: "'Google Sans', 'Product Sans', sans-serif" }}
-              >
-                Leonardo's Playground
-              </span>
-            </div>
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Desktop Navigation Links - Centered */}
+          <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentPath === item.path;
@@ -104,17 +96,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               {isDark ? <MdWbSunny className="w-4 h-4 text-purple-400" /> : <MdNightsStay className="w-4 h-4 text-purple-600" />}
             </button>
-
-            {/* GitHub Repository External Link */}
-            <a
-              href="https://github.com/isaiahscape"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1.5 bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 px-3 py-1.5 rounded-lg text-xs font-semibold transition shadow-xs"
-            >
-              <Github className="w-3.5 h-3.5" />
-              <span>GitHub</span>
-            </a>
 
             {/* Mobile Sheet Toggle */}
             <button

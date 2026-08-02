@@ -4,6 +4,7 @@ import { PROJECTS_DATA } from '../../data/projectsData';
 import { useGitHubRepo } from '../../hooks/useGitHubRepo';
 import { BuildBadge } from '../BuildBadge';
 import { ScreenshotGallery } from '../ScreenshotGallery';
+import { MarkdownRenderer } from '../MarkdownRenderer';
 import { MdStar as Star, MdDeviceHub as GitFork, MdTerminal as Terminal, MdMenuBook as Book, MdLayers as Layers, MdWallet as Wallet, MdCheckCircleOutline as CheckCircle2, MdContentCopy as Copy, MdCheck as Check, MdOpenInNew as ExternalLink, MdInsertDriveFile as FileText, MdImage as ImageIcon, MdInsights as Activity, MdDownload as Download, MdArrowBack as ArrowLeft, MdAutoAwesome as Sparkles, MdSecurity as Shield, MdAccessTime as Clock, MdMenuBook as BookOpen } from 'react-icons/md';
 import { FaGithub as Github } from 'react-icons/fa';
 
@@ -215,11 +216,9 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 space-y-4">
             <h3 className="font-bold text-base text-zinc-900 dark:text-zinc-100 font-mono border-b border-zinc-100 dark:border-zinc-800 pb-3">
-              README.md Preview
+              README.md
             </h3>
-            <pre className="bg-zinc-950 text-zinc-200 p-4 rounded-xl font-mono text-xs overflow-x-auto whitespace-pre-wrap leading-relaxed border border-zinc-800">
-              {project.readmePreview}
-            </pre>
+            <MarkdownRenderer content={project.readmePreview} />
           </div>
 
           <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 space-y-4 h-fit">
