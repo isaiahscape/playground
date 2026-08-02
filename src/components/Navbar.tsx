@@ -51,12 +51,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span 
-                  className="font-bold text-lg tracking-tight text-zinc-900 dark:text-zinc-100"
-                  style={{ fontFamily: "'Google Sans', 'Product Sans', sans-serif" }}
-                >
-                  Leonardo's Playground
-                </span>
               </div>
             </div>
           </div>
