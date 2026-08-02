@@ -49,9 +49,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="w-9 h-9 flex items-center justify-center group-hover:scale-105 transition-transform">
               <img src="/favicon.svg" alt="Logo" className="w-9 h-9 object-contain" />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-              </div>
+            <div className="min-w-0">
+              <span 
+                className="font-bold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-zinc-100 truncate hidden sm:block"
+                style={{ fontFamily: "'Google Sans', 'Product Sans', sans-serif" }}
+              >
+                Leonardo's Playground
+              </span>
             </div>
           </div>
 

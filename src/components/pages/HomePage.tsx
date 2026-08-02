@@ -34,7 +34,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
     <div className="space-y-12">
       
       {/* Hero Header Banner - Full Screen */}
-      <section className="relative overflow-hidden bg-zinc-50 dark:bg-black text-zinc-900 dark:text-white w-screen -ml-[50vw] left-1/2 min-h-screen flex items-center py-10 sm:py-16">
+      <section className="relative overflow-hidden bg-zinc-50 dark:bg-black text-zinc-900 dark:text-white w-screen -ml-[50vw] left-1/2 min-h-[100svh] sm:min-h-screen flex items-center py-10 sm:py-16">
         <div className="absolute inset-0">
           <ColorBends
             colors={isDark ? ['#8B5CF6', '#7C3AED', '#6D28D9', '#A855F7', '#EC4899'] : ['#A78BFA', '#8B5CF6', '#7C3AED', '#C084FC', '#F0ABFC']}

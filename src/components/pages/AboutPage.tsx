@@ -52,7 +52,7 @@ export const AboutPage: React.FC = () => {
             </li>
             <li className="flex items-center gap-2">
               <CheckCircle2 className="w-3.5 h-3.5 text-purple-500" />
-              <span>isaiahscape/materialexp — Self MIT License (github.com/isaiahscape/materialexp/license)</span>
+              <span>isaiahscape/materialexp — MIT License</span>
             </li>
           </ul>
         </div>

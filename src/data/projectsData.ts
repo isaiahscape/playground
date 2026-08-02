@@ -124,7 +124,7 @@ git clone https://github.com/isaiahscape/bedrock.git
     longDescription: 'Overseer is a modern, minimalist, and feature-packed Android file manager built using Jetpack Compose and Material Design 3. Designed for high productivity and intuitive interaction, it features multi-tab file browsing, dynamic view modes, storage analysis, built-in text/code editing, archive management, and responsive floating controls.',
     category: 'Android Application',
     version: 'v1.0.2',
-    license: 'Self MIT (github.com/isaiahscape/materialexp/license)',
+    license: 'MIT License',
     techStack: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Kotlin Coroutines', 'Gradle'],
     githubUrl: 'https://github.com/isaiahscape/materialexp',
     cloneUrl: 'https://github.com/isaiahscape/materialexp.git',

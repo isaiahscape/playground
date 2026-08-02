@@ -19,7 +19,7 @@ const FALLBACK_STATS: Record<string, GitHubRepoStats> = {
     watchers: 12,
     lastUpdated: 'Yesterday',
     defaultBranch: 'main',
-    licenseName: 'Self MIT License (github.com/isaiahscape/materialexp/license)',
+    licenseName: 'MIT License',
     languages: { TypeScript: 78, CSS: 15, HTML: 7 },
   },
   'isaiahscape/anchor': {

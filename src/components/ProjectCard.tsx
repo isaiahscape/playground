@@ -41,21 +41,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
     >
       <div>
         {/* Header: Title, Repo, Badges */}
-        <div className="flex items-start justify-between gap-4 mb-3">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/60 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <div className="flex items-center gap-3 min-w-0 flex-1">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/60 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
               {getProjectIcon()}
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   {project.name}
                 </h3>
                 <span className="text-xs font-mono text-zinc-400 font-normal">
                   {project.version}
                 </span>
               </div>
-              <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+              <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5 truncate">
                 {project.repo}
               </p>
             </div>

@@ -82,7 +82,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-1.5 text-zinc-600 dark:text-zinc-400 font-mono text-[11px]">
               <li>GPL-3.0 License (Anchor)</li>
               <li>Apache-2.0 License (Bedrock)</li>
-              <li>Self MIT License (Material Explorer)</li>
+              <li>MIT License (Overseer)</li>
             </ul>
           </div>
 
