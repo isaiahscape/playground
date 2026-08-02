@@ -44,7 +44,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3 py-1.5 rounded-xl transition shadow-2xs"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to All FOSS Projects</span>
+          <span>Back to home</span>
         </button>
       </div>
 
@@ -59,7 +59,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
 
             <div>
               <div className="flex items-center gap-3 flex-wrap">
-                <h1 className="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight text-zinc-900 dark:text-zinc-100">
+                <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100">
                   {project.name}
                 </h1>
                 <span className="text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 px-2 py-0.5 rounded-md">
