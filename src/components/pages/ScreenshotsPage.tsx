@@ -4,7 +4,7 @@ import { MdImage as ImageIcon, MdAutoAwesome as Sparkles } from 'react-icons/md'
 
 export const ScreenshotsPage: React.FC = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pt-8">
       {/* Header */}
       <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl">
         <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">

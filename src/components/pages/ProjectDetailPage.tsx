@@ -35,7 +35,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ projectId,
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pt-8">
       
       {/* Back button */}
       <div>

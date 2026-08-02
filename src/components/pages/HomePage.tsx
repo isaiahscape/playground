@@ -9,9 +9,10 @@ import { FaGithub as Github, FaDiscord as Discord } from 'react-icons/fa';
 
 interface HomePageProps {
   onNavigate: (path: string) => void;
+  isDark: boolean;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [copiedCloneAll, setCopiedCloneAll] = useState(false);
@@ -32,11 +33,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
     <div className="space-y-12">
       
-      {/* Hero Header Banner - Full Screen Width */}
-      <section className="relative overflow-hidden bg-zinc-900 text-white w-screen -ml-[50vw] left-1/2 border-b border-zinc-800 shadow-2xl py-10 sm:py-16">
+      {/* Hero Header Banner - Full Screen */}
+      <section className="relative overflow-hidden bg-zinc-50 dark:bg-black text-zinc-900 dark:text-white w-screen -ml-[50vw] left-1/2 min-h-screen flex items-center py-10 sm:py-16">
         <div className="absolute inset-0">
           <ColorBends
-            colors={['#8B5CF6', '#7C3AED', '#6D28D9', '#A855F7', '#EC4899']}
+            colors={isDark ? ['#8B5CF6', '#7C3AED', '#6D28D9', '#A855F7', '#EC4899'] : ['#A78BFA', '#8B5CF6', '#7C3AED', '#C084FC', '#F0ABFC']}
             rotation={90}
             speed={0.2}
             frequency={1}
@@ -44,16 +45,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             mouseInfluence={1}
             parallax={0.5}
             noise={0.1}
-            intensity={0.35}
+            intensity={isDark ? 0.6 : 0.8}
             bandWidth={6}
             className="w-full h-full"
           />
-          <div className="absolute inset-0 bg-zinc-900/70" />
+          <div className={`absolute inset-0 ${isDark ? 'bg-black/40' : 'bg-white/30'}`} />
           <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
         </div>
-        <div className="relative z-10 max-w-3xl space-y-5 px-4 sm:px-6 lg:px-8 mx-auto">
+        {/* Top progressive blur to blend with navbar above */}
+        <div className="absolute top-0 left-0 right-0 h-40 pointer-events-none">
+          <div className="absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_top,transparent,black_60%)] bg-gradient-to-t from-transparent to-zinc-50 dark:to-black" />
+        </div>
+        {/* Bottom progressive blur to blend into page content on scroll */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none">
+          <div className="absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_bottom,transparent,black_60%)] bg-gradient-to-b from-transparent to-zinc-50 dark:to-black" />
+        </div>
+        <div className="relative z-10 max-w-3xl space-y-5 px-4 sm:px-6 lg:px-8 mx-auto text-center">
           
-          <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-mono font-semibold">
+          <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full text-xs font-mono font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Status</span>
             <span className="opacity-50">•</span>
@@ -61,18 +70,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Isaiah's FOSS <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400">Applications</span>
+            Leonardo's <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-purple-400 to-purple-500 dark:from-purple-400 dark:via-purple-300 dark:to-purple-400">Playground</span>
           </h1>
 
-          <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans">
             Independent, free and open-source applications built by Isaiah. Featuring Bedrock, Material Explorer, and Anchor budget & expense tracker.
           </p>
 
           {/* Quick Hero Actions */}
-          <div className="flex flex-wrap items-center gap-3 pt-3">
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
             <button
               onClick={() => onNavigate('/anchor')}
-              className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-400 text-zinc-950 font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-lg"
+              className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-400 text-white dark:text-zinc-950 font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-lg"
             >
               <Wallet className="w-4 h-4" />
               <span>Anchor: Expense Tracker (Coming Soon)</span>
@@ -80,17 +89,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
             <button
               onClick={() => onNavigate('/status')}
-              className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-700"
+              className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-300 dark:border-zinc-700"
             >
-              <Activity className="w-4 h-4 text-purple-400" />
+              <Activity className="w-4 h-4 text-purple-500 dark:text-purple-400" />
               <span>Commit Matrix</span>
             </button>
 
             <button
               onClick={() => onNavigate('/screenshots')}
-              className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-700"
+              className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-300 dark:border-zinc-700"
             >
-              <ImageIcon className="w-4 h-4 text-purple-400" />
+              <ImageIcon className="w-4 h-4 text-purple-500 dark:text-purple-400" />
               <span>Screenshots & Gallery</span>
             </button>
           </div>

@@ -5,7 +5,7 @@ import { DiscordButton } from '../DiscordButton';
 
 export const ContactsPage: React.FC = () => {
   return (
-    <div className="space-y-8 max-w-4xl mx-auto">
+    <div className="space-y-8 max-w-4xl mx-auto pt-8">
       
       {/* Header */}
       <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl">

@@ -4,15 +4,16 @@
 
 @layer base {
   body {
-    @apply bg-zinc-50 text-zinc-900 antialiased selection:bg-purple-500/20 selection:text-purple-700 dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-purple-500/30 dark:selection:text-purple-300;
+    @apply bg-zinc-50 text-zinc-900 antialiased selection:bg-purple-500/20 selection:text-purple-700 dark:bg-black dark:text-zinc-100 dark:selection:bg-purple-500/30 dark:selection:text-purple-300;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
-/* Custom scrollbar */
+/* Hide scrollbar but keep scroll functionality */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 0px;
+  height: 0px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
@@ -21,6 +22,11 @@
 
 ::-webkit-scrollbar-thumb {
   @apply bg-zinc-300 dark:bg-zinc-800 rounded-full hover:bg-zinc-400 dark:hover:bg-zinc-700;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Glowing background accents */

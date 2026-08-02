@@ -7,7 +7,7 @@ export const StatusPage: React.FC = () => {
   const projects = Object.values(PROJECTS_DATA);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pt-8">
       {/* Header */}
       <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
@@ -19,7 +19,7 @@ export const StatusPage: React.FC = () => {
             GitHub Commit Matrix
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 mt-1 max-w-2xl">
-            Live build status badges, release checks, and workflow test runners for Isaiah's FOSS repositories.
+            Live build status badges, release checks, and workflow test runners for Leonardo's repositories.
           </p>
         </div>
 

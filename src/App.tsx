@@ -35,12 +35,12 @@ export default function App() {
         return <ContactsPage />;
       case '/':
       default:
-        return <HomePage onNavigate={navigate} />;
+        return <HomePage onNavigate={navigate} isDark={isDark} />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-200">
+    <div className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-200">
       
       {/* Main Navbar */}
       <Navbar
@@ -52,7 +52,7 @@ export default function App() {
       />
 
       {/* Page Body Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         {renderContent()}
       </main>
 

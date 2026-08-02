@@ -105,7 +105,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
       {/* Footer Actions & Quick Clone command */}
       <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800/80 space-y-3">
         {/* Clone command preview */}
-        <div className="flex items-center justify-between bg-zinc-50 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800/80 rounded-lg px-2.5 py-1.5 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+        <div className="flex items-center justify-between bg-zinc-50 dark:bg-black/80 border border-zinc-200 dark:border-zinc-800/80 rounded-lg px-2.5 py-1.5 text-xs font-mono text-zinc-600 dark:text-zinc-400">
           <span className="truncate mr-2">git clone {project.cloneUrl}</span>
           <button
             onClick={handleCopyClone}

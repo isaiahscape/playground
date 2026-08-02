@@ -4,7 +4,7 @@ import { FaGithub as Github } from 'react-icons/fa';
 
 export const AboutPage: React.FC = () => {
   return (
-    <div className="space-y-8 max-w-4xl mx-auto">
+    <div className="space-y-8 max-w-4xl mx-auto pt-8">
       
       {/* Header */}
       <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl">
@@ -13,7 +13,7 @@ export const AboutPage: React.FC = () => {
           <span>play.isaiahthings.me/about</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight">
-          Isaiah's FOSS Manifesto
+          Information
         </h1>
         <p className="text-xs sm:text-sm text-zinc-400 mt-1">
           Free and Open Source Software - Anchor, Bedrock, and Material Explorer.

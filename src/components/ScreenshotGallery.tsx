@@ -163,7 +163,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
               className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-200 shadow-sm hover:shadow-lg cursor-pointer flex flex-col justify-between"
             >
               {/* Browser Header Chrome */}
-              <div className="bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800/80 px-3 py-2 flex items-center justify-between text-xs">
+              <div className="bg-zinc-100 dark:bg-black border-b border-zinc-200 dark:border-zinc-800/80 px-3 py-2 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-purple-500/80 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-purple-500/80 inline-block" />

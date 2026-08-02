@@ -153,7 +153,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
         </div>
 
         {/* Footer info */}
-        <div className="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 px-3 py-2 flex items-center justify-between text-[11px] text-zinc-400 font-mono">
+        <div className="bg-zinc-50 dark:bg-black border-t border-zinc-200 dark:border-zinc-800 px-3 py-2 flex items-center justify-between text-[11px] text-zinc-400 font-mono">
           <span>play.isaiahthings.me</span>
           <span>Press ESC to close</span>
         </div>
