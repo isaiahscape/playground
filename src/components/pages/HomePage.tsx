@@ -3,6 +3,7 @@ import { PROJECTS_DATA } from '../../data/projectsData';
 import { ProjectCard } from '../ProjectCard';
 import { BuildBadge } from '../BuildBadge';
 import { DiscordButton } from '../DiscordButton';
+import ColorBends from '../ColorBends';
 import { MdTerminal as Terminal, MdLayers as Layers, MdWallet as Wallet, MdCode as Code2, MdAutoAwesome as Sparkles, MdCheckCircleOutline as CheckCircle2, MdVerifiedUser as MdVerifiedUser, MdInsights as Activity, MdSearch as Search, MdArrowForward as ArrowRight, MdDownload as Download, MdContentCopy as Copy, MdCheck as Check, MdImage as ImageIcon, MdGroups as Groups } from 'react-icons/md';
 import { FaGithub as Github, FaDiscord as Discord } from 'react-icons/fa';
 
@@ -31,10 +32,26 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
     <div className="space-y-12">
       
-      {/* Hero Header Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-zinc-900 to-zinc-950 text-white rounded-3xl p-6 sm:p-10 border border-zinc-800 shadow-2xl">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
-        <div className="relative z-10 max-w-3xl space-y-5">
+      {/* Hero Header Banner - Full Screen Width */}
+      <section className="relative overflow-hidden bg-zinc-900 text-white w-screen -ml-[50vw] left-1/2 border-b border-zinc-800 shadow-2xl py-10 sm:py-16">
+        <div className="absolute inset-0">
+          <ColorBends
+            colors={['#8B5CF6', '#7C3AED', '#6D28D9', '#A855F7', '#EC4899']}
+            rotation={90}
+            speed={0.2}
+            frequency={1}
+            warpStrength={1}
+            mouseInfluence={1}
+            parallax={0.5}
+            noise={0.1}
+            intensity={0.35}
+            bandWidth={6}
+            className="w-full h-full"
+          />
+          <div className="absolute inset-0 bg-zinc-900/70" />
+          <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
+        </div>
+        <div className="relative z-10 max-w-3xl space-y-5 px-4 sm:px-6 lg:px-8 mx-auto">
           
           <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-mono font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
