@@ -44,9 +44,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
             warpStrength={1}
             mouseInfluence={1}
             parallax={0.5}
-            noise={0.15}
-            intensity={1.3}
-            bandWidth={0.14}
+            noise={0.1}
+            intensity={isDark ? 0.6 : 0.8}
+            bandWidth={6}
             iterations={1}
             dotFieldColors={isDark
               ? ['rgba(168, 85, 247, 0.35)', 'rgba(180, 151, 207, 0.25)']

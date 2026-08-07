@@ -143,8 +143,8 @@ export default function ColorBends({
   parallax = 0.5,
   noise = 0.15,
   iterations = 1,
-  intensity = 1.5,
-  bandWidth = 0.6,
+  intensity = 2.0,
+  bandWidth = 6,
   dotField = true,
   dotFieldColors,
 }: ColorBendsProps) {
