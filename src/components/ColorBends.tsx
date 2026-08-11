@@ -60,7 +60,7 @@ void main() {
 
     for (int j = 0; j < 5; j++) {
       if (j >= uIterations - 1) break;
-      vec2 rr = sin(1.5 * (q.yx * uFrequency) + 2.0 * cos(q * uFrequency));
+      vec2 rr = sin(1.5 * (q.yx * uFrequency)) + cos(q * uFrequency) - 1.0;
       q += (rr - q) * 0.15;
     }
 
@@ -73,8 +73,8 @@ void main() {
       float cover = 0.0;
       for (int i = 0; i < MAX_COLORS; ++i) {
             if (i >= uColorCount) break;
-            s -= 0.01;
-            vec2 r = sin(1.5 * (s.yx * uFrequency) + 2.0 * cos(s * uFrequency));
+            s -= 0.12;
+            vec2 r = sin(1.5 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
             float m0 = length(r + sin(5.0 * r.y * uFrequency - 3.0 * t + float(i)) / 4.0);
             float kBelow = clamp(uWarpStrength, 0.0, 1.0);
             float kMix = pow(kBelow, 0.3); // strong response across 0..1
@@ -92,8 +92,8 @@ void main() {
     } else {
         vec2 s = q;
         for (int k = 0; k < 3; ++k) {
-            s -= 0.01;
-            vec2 r = sin(1.5 * (s.yx * uFrequency) + 2.0 * cos(s * uFrequency));
+            s -= 0.12;
+            vec2 r = sin(1.5 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
             float m0 = length(r + sin(5.0 * r.y * uFrequency - 3.0 * t + float(k)) / 4.0);
             float kBelow = clamp(uWarpStrength, 0.0, 1.0);
             float kMix = pow(kBelow, 0.3);
