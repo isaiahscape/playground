@@ -67,12 +67,13 @@ void main() {
 
   if (uColorCount > 0) {
     vec3 sumCol = vec3(0.0);
-    float cover = 0.0;
+    float sumW = 0.0;
+    float maxCover = 0.0;
     float centerOffset = float(uColorCount - 1) * 0.5;
     for (int i = 0; i < MAX_COLORS; ++i) {
       if (i >= uColorCount) break;
       float idx = float(i) - centerOffset;
-      vec2 s = q + idx * vec2(0.12, 0.08);
+      vec2 s = q + idx * vec2(0.18, 0.12);
       vec2 r = sin(1.2 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
       float m0 = length(r + sin(4.0 * r.y * uFrequency - 2.5 * t + float(i)) / 4.0);
       float kBelow = clamp(uWarpStrength, 0.0, 1.0);
@@ -84,15 +85,17 @@ void main() {
       float m = mix(m0, m1, kMix);
       float w = exp(-m * m / max(uBandWidth, 0.001));
       sumCol += uColors[i] * w;
-      cover = max(cover, w);
+      sumW += w;
+      maxCover = max(maxCover, w);
     }
-    col = clamp(sumCol, 0.0, 1.0);
-    a = uTransparent > 0 ? clamp(cover * 0.9, 0.0, 1.0) : 1.0;
+    vec3 blendCol = sumW > 0.001 ? (sumCol / sumW) : uColors[0];
+    col = blendCol * clamp(maxCover * 1.3, 0.0, 1.0);
+    a = uTransparent > 0 ? clamp(maxCover * 0.9, 0.0, 1.0) : 1.0;
   } else {
     vec3 sumCol = vec3(0.0);
     for (int k = 0; k < 3; ++k) {
       float idx = float(k) - 1.0;
-      vec2 s = q + idx * vec2(0.12, 0.08);
+      vec2 s = q + idx * vec2(0.18, 0.12);
       vec2 r = sin(1.2 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
       float m0 = length(r + sin(4.0 * r.y * uFrequency - 2.5 * t + float(k)) / 4.0);
       float kBelow = clamp(uWarpStrength, 0.0, 1.0);
