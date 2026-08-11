@@ -19,7 +19,6 @@ type ColorBendsProps = {
   iterations?: number;
   intensity?: number;
   bandWidth?: number;
-  fadeTop?: number;
   dotField?: boolean;
   dotFieldColors?: [string, string];
 };
@@ -38,89 +37,83 @@ uniform int uTransparent;
 uniform float uScale;
 uniform float uFrequency;
 uniform float uWarpStrength;
-uniform vec2 uPointer; // in NDC [-1,1]
+uniform vec2 uPointer;
 uniform float uMouseInfluence;
 uniform float uParallax;
 uniform float uNoise;
 uniform int uIterations;
 uniform float uIntensity;
 uniform float uBandWidth;
-uniform float uFadeTop;
 varying vec2 vUv;
 
 void main() {
   float t = uTime * uSpeed;
   vec2 p = vUv * 2.0 - 1.0;
-  p.x *= (uCanvas.x / uCanvas.y);
+  p.x *= (uCanvas.x / max(uCanvas.y, 1.0));
   p += uPointer * uParallax * 0.1;
   vec2 rp = vec2(p.x * uRot.x - p.y * uRot.y, p.x * uRot.y + p.y * uRot.x);
   vec2 q = rp / max(uScale, 0.0001);
   vec2 toward = (uPointer - rp);
   q += toward * uMouseInfluence * 0.2;
 
-    for (int j = 0; j < 5; j++) {
-      if (j >= uIterations - 1) break;
-      vec2 rr = sin(1.5 * (q.yx * uFrequency)) + cos(q * uFrequency) - 1.0;
-      q += (rr - q) * 0.15;
+  for (int j = 0; j < 5; j++) {
+    if (j >= uIterations - 1) break;
+    vec2 rr = sin(1.2 * (q.yx * uFrequency)) + cos(q * uFrequency) - 1.0;
+    q += (rr - q) * 0.15;
+  }
+
+  vec3 col = vec3(0.0);
+  float a = 1.0;
+
+  if (uColorCount > 0) {
+    vec2 s = q;
+    vec3 sumCol = vec3(0.0);
+    float cover = 0.0;
+    for (int i = 0; i < MAX_COLORS; ++i) {
+      if (i >= uColorCount) break;
+      s -= vec2(0.20, 0.15);
+      vec2 r = sin(1.2 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
+      float m0 = length(r + sin(4.0 * r.y * uFrequency - 2.5 * t + float(i)) / 4.0);
+      float kBelow = clamp(uWarpStrength, 0.0, 1.0);
+      float kMix = pow(kBelow, 0.3);
+      float gain = 1.0 + max(uWarpStrength - 1.0, 0.0);
+      vec2 disp = (r - s) * kBelow;
+      vec2 warped = s + disp * gain;
+      float m1 = length(warped + sin(4.0 * warped.y * uFrequency - 2.5 * t + float(i)) / 4.0);
+      float m = mix(m0, m1, kMix);
+      float w = exp(-m * m / max(uBandWidth, 0.001));
+      sumCol += uColors[i] * w;
+      cover = max(cover, w);
     }
-
-    vec3 col = vec3(0.0);
-    float a = 1.0;
-
-    if (uColorCount > 0) {
-      vec2 s = q;
-      vec3 sumCol = vec3(0.0);
-      float cover = 0.0;
-      for (int i = 0; i < MAX_COLORS; ++i) {
-            if (i >= uColorCount) break;
-            s -= 0.12;
-            vec2 r = sin(1.5 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
-            float m0 = length(r + sin(5.0 * r.y * uFrequency - 3.0 * t + float(i)) / 4.0);
-            float kBelow = clamp(uWarpStrength, 0.0, 1.0);
-            float kMix = pow(kBelow, 0.3); // strong response across 0..1
-            float gain = 1.0 + max(uWarpStrength - 1.0, 0.0); // allow >1 to amplify displacement
-            vec2 disp = (r - s) * kBelow;
-            vec2 warped = s + disp * gain;
-            float m1 = length(warped + sin(5.0 * warped.y * uFrequency - 3.0 * t + float(i)) / 4.0);
-            float m = mix(m0, m1, kMix);
-            float w = exp(-m * m / max(uBandWidth, 0.001));
-            sumCol += uColors[i] * w;
-            cover = max(cover, w);
-      }
-      col = clamp(sumCol, 0.0, 1.0);
-      a = uTransparent > 0 ? clamp(cover, 0.0, 1.0) : 1.0;
-    } else {
-        vec2 s = q;
-        for (int k = 0; k < 3; ++k) {
-            s -= 0.12;
-            vec2 r = sin(1.5 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
-            float m0 = length(r + sin(5.0 * r.y * uFrequency - 3.0 * t + float(k)) / 4.0);
-            float kBelow = clamp(uWarpStrength, 0.0, 1.0);
-            float kMix = pow(kBelow, 0.3);
-            float gain = 1.0 + max(uWarpStrength - 1.0, 0.0);
-            vec2 disp = (r - s) * kBelow;
-            vec2 warped = s + disp * gain;
-            float m1 = length(warped + sin(5.0 * warped.y * uFrequency - 3.0 * t + float(k)) / 4.0);
-            float m = mix(m0, m1, kMix);
-            col[k] = exp(-m * m / max(uBandWidth, 0.001));
-        }
-        a = uTransparent > 0 ? max(max(col.r, col.g), col.b) : 1.0;
+    col = clamp(sumCol, 0.0, 1.0);
+    a = uTransparent > 0 ? clamp(cover * 0.9, 0.0, 1.0) : 1.0;
+  } else {
+    vec2 s = q;
+    for (int k = 0; k < 3; ++k) {
+      s -= 0.15;
+      vec2 r = sin(1.2 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
+      float m0 = length(r + sin(4.0 * r.y * uFrequency - 2.5 * t + float(k)) / 4.0);
+      float kBelow = clamp(uWarpStrength, 0.0, 1.0);
+      float kMix = pow(kBelow, 0.3);
+      float gain = 1.0 + max(uWarpStrength - 1.0, 0.0);
+      vec2 disp = (r - s) * kBelow;
+      vec2 warped = s + disp * gain;
+      float m1 = length(warped + sin(4.0 * warped.y * uFrequency - 2.5 * t + float(k)) / 4.0);
+      float m = mix(m0, m1, kMix);
+      col[k] = exp(-m * m / max(uBandWidth, 0.001));
     }
+    a = uTransparent > 0 ? max(max(col.r, col.g), col.b) : 1.0;
+  }
 
-    col *= uIntensity;
+  col *= uIntensity;
 
-    if (uNoise > 0.0001) {
-      float n = fract(sin(dot(gl_FragCoord.xy + vec2(uTime), vec2(12.9898, 78.233))) * 43758.5453123);
-      col += (n - 0.5) * uNoise;
-      col = clamp(col, 0.0, 1.0);
-    }
+  if (uNoise > 0.0001) {
+    float n = fract(sin(dot(gl_FragCoord.xy + vec2(uTime), vec2(12.9898, 78.233))) * 43758.5453123);
+    col += (n - 0.5) * uNoise;
+    col = clamp(col, 0.0, 1.0);
+  }
 
-    if (uFadeTop > 0.001) {
-      float fade = 1.0 - smoothstep(1.0 - clamp(uFadeTop, 0.0, 1.0), 1.0, vUv.y);
-      a *= fade;
-    }
-
-    gl_FragColor = vec4(col, a);
+  gl_FragColor = vec4(col, a);
 }
 `;
 
@@ -145,11 +138,10 @@ export default function ColorBends({
   warpStrength = 1,
   mouseInfluence = 1,
   parallax = 0.5,
-  noise = 0.15,
+  noise = 0.12,
   iterations = 1,
   intensity = 1.3,
-  bandWidth = 0.14,
-  fadeTop = 0.75,
+  bandWidth = 0.25,
   dotField = true,
   dotFieldColors,
 }: ColorBendsProps) {
@@ -191,8 +183,7 @@ export default function ColorBends({
         uNoise: { value: noise },
         uIterations: { value: iterations },
         uIntensity: { value: intensity },
-        uBandWidth: { value: bandWidth },
-        uFadeTop: { value: fadeTop }
+        uBandWidth: { value: bandWidth }
       },
       premultipliedAlpha: false,
       transparent: true
@@ -287,7 +278,6 @@ export default function ColorBends({
     material.uniforms.uIterations.value = iterations;
     material.uniforms.uIntensity.value = intensity;
     material.uniforms.uBandWidth.value = bandWidth;
-    material.uniforms.uFadeTop.value = fadeTop;
 
     const toVec3 = (hex: string) => {
       const h = hex.replace('#', '').trim();
@@ -321,7 +311,6 @@ export default function ColorBends({
     iterations,
     intensity,
     bandWidth,
-    fadeTop,
     colors,
     transparent
   ]);

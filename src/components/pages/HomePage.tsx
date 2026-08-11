@@ -35,18 +35,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
       <section className="relative overflow-hidden bg-zinc-50 dark:bg-black text-zinc-900 dark:text-white w-full min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center py-16 sm:py-24">
         <div className="absolute inset-0">
           <ColorBends
-            colors={isDark ? ['#8B5CF6', '#7C3AED', '#6D28D9', '#A855F7', '#EC4899'] : ['#A78BFA', '#8B5CF6', '#7C3AED', '#C084FC', '#F0ABFC']}
-            rotation={90}
-            speed={0.2}
-            frequency={1.0}
-            warpStrength={1}
+            colors={isDark 
+              ? ['#8B5CF6', '#7C3AED', '#6D28D9', '#A855F7', '#EC4899', '#D946EF', '#3B82F6'] 
+              : ['#A78BFA', '#8B5CF6', '#7C3AED', '#C084FC', '#F0ABFC', '#E879F9', '#60A5FA']}
+            rotation={45}
+            speed={0.25}
+            frequency={1.1}
+            warpStrength={1.2}
             mouseInfluence={1}
             parallax={0.5}
-            noise={0.15}
-            intensity={isDark ? 1.5 : 1.8}
-            bandWidth={0.25}
-            fadeTop={0.75}
-            iterations={1}
+            noise={0.12}
+            intensity={isDark ? 1.3 : 1.5}
+            bandWidth={0.35}
+            iterations={2}
             dotFieldColors={isDark
               ? ['rgba(168, 85, 247, 0.35)', 'rgba(180, 151, 207, 0.25)']
               : ['rgba(168, 85, 247, 0.30)', 'rgba(180, 151, 207, 0.20)']
