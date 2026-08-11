@@ -19,6 +19,7 @@ type ColorBendsProps = {
   iterations?: number;
   intensity?: number;
   bandWidth?: number;
+  fadeTop?: number;
   dotField?: boolean;
   dotFieldColors?: [string, string];
 };
@@ -44,6 +45,7 @@ uniform float uNoise;
 uniform int uIterations;
 uniform float uIntensity;
 uniform float uBandWidth;
+uniform float uFadeTop;
 varying vec2 vUv;
 
 void main() {
@@ -52,10 +54,7 @@ void main() {
   p.x *= (uCanvas.x / uCanvas.y);
   p += uPointer * uParallax * 0.1;
   vec2 rp = vec2(p.x * uRot.x - p.y * uRot.y, p.x * uRot.y + p.y * uRot.x);
-  vec2 q = rp;
-  q /= max(uScale, 0.0001);
-  q /= 0.5 + 0.2 * dot(q, q);
-  q += 0.2 * cos(t) - 7.56;
+  vec2 q = rp / max(uScale, 0.0001);
   vec2 toward = (uPointer - rp);
   q += toward * uMouseInfluence * 0.2;
 
@@ -116,6 +115,11 @@ void main() {
       col = clamp(col, 0.0, 1.0);
     }
 
+    if (uFadeTop > 0.001) {
+      float fade = 1.0 - smoothstep(1.0 - clamp(uFadeTop, 0.0, 1.0), 1.0, vUv.y);
+      a *= fade;
+    }
+
     vec3 rgb = (uTransparent > 0) ? col * a : col;
     gl_FragColor = vec4(rgb, a);
 }
@@ -133,7 +137,7 @@ export default function ColorBends({
   className,
   style,
   rotation = 90,
-  speed = 0.5,
+  speed = 0.2,
   colors = [],
   transparent = true,
   autoRotate = 0,
@@ -144,8 +148,9 @@ export default function ColorBends({
   parallax = 0.5,
   noise = 0.15,
   iterations = 1,
-  intensity = 2.0,
-  bandWidth = 6,
+  intensity = 1.3,
+  bandWidth = 0.14,
+  fadeTop = 0.75,
   dotField = true,
   dotFieldColors,
 }: ColorBendsProps) {
@@ -187,7 +192,8 @@ export default function ColorBends({
         uNoise: { value: noise },
         uIterations: { value: iterations },
         uIntensity: { value: intensity },
-        uBandWidth: { value: bandWidth }
+        uBandWidth: { value: bandWidth },
+        uFadeTop: { value: fadeTop }
       },
       premultipliedAlpha: true,
       transparent: true
@@ -282,6 +288,7 @@ export default function ColorBends({
     material.uniforms.uIterations.value = iterations;
     material.uniforms.uIntensity.value = intensity;
     material.uniforms.uBandWidth.value = bandWidth;
+    material.uniforms.uFadeTop.value = fadeTop;
 
     const toVec3 = (hex: string) => {
       const h = hex.replace('#', '').trim();
@@ -315,6 +322,7 @@ export default function ColorBends({
     iterations,
     intensity,
     bandWidth,
+    fadeTop,
     colors,
     transparent
   ]);
