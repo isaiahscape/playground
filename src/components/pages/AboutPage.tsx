@@ -4,7 +4,7 @@ import { FaGithub as Github } from 'react-icons/fa';
 
 export const AboutPage: React.FC = () => {
   return (
-    <div className="space-y-8 max-w-4xl mx-auto pt-8">
+    <div className="space-y-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
       
       {/* Header */}
       <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl">
