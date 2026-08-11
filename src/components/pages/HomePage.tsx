@@ -43,8 +43,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
             mouseInfluence={1}
             parallax={0.5}
             noise={0.15}
-            intensity={isDark ? 1.2 : 1.4}
-            bandWidth={0.14}
+            intensity={isDark ? 1.5 : 1.8}
+            bandWidth={0.25}
             fadeTop={0.75}
             iterations={1}
             dotFieldColors={isDark

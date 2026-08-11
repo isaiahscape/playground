@@ -83,12 +83,12 @@ void main() {
             vec2 warped = s + disp * gain;
             float m1 = length(warped + sin(5.0 * warped.y * uFrequency - 3.0 * t + float(i)) / 4.0);
             float m = mix(m0, m1, kMix);
-            float w = 1.0 - exp(-uBandWidth / exp(uBandWidth * m));
+            float w = exp(-m * m / max(uBandWidth, 0.001));
             sumCol += uColors[i] * w;
             cover = max(cover, w);
       }
       col = clamp(sumCol, 0.0, 1.0);
-      a = uTransparent > 0 ? cover : 1.0;
+      a = uTransparent > 0 ? clamp(cover, 0.0, 1.0) : 1.0;
     } else {
         vec2 s = q;
         for (int k = 0; k < 3; ++k) {
@@ -102,7 +102,7 @@ void main() {
             vec2 warped = s + disp * gain;
             float m1 = length(warped + sin(5.0 * warped.y * uFrequency - 3.0 * t + float(k)) / 4.0);
             float m = mix(m0, m1, kMix);
-            col[k] = 1.0 - exp(-uBandWidth / exp(uBandWidth * m));
+            col[k] = exp(-m * m / max(uBandWidth, 0.001));
         }
         a = uTransparent > 0 ? max(max(col.r, col.g), col.b) : 1.0;
     }
@@ -120,8 +120,7 @@ void main() {
       a *= fade;
     }
 
-    vec3 rgb = (uTransparent > 0) ? col * a : col;
-    gl_FragColor = vec4(rgb, a);
+    gl_FragColor = vec4(col, a);
 }
 `;
 
@@ -195,7 +194,7 @@ export default function ColorBends({
         uBandWidth: { value: bandWidth },
         uFadeTop: { value: fadeTop }
       },
-      premultipliedAlpha: true,
+      premultipliedAlpha: false,
       transparent: true
     });
     materialRef.current = material;
