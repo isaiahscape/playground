@@ -66,12 +66,13 @@ void main() {
   float a = 1.0;
 
   if (uColorCount > 0) {
-    vec2 s = q;
     vec3 sumCol = vec3(0.0);
     float cover = 0.0;
+    float centerOffset = float(uColorCount - 1) * 0.5;
     for (int i = 0; i < MAX_COLORS; ++i) {
       if (i >= uColorCount) break;
-      s -= vec2(0.20, 0.15);
+      float idx = float(i) - centerOffset;
+      vec2 s = q + idx * vec2(0.12, 0.08);
       vec2 r = sin(1.2 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
       float m0 = length(r + sin(4.0 * r.y * uFrequency - 2.5 * t + float(i)) / 4.0);
       float kBelow = clamp(uWarpStrength, 0.0, 1.0);
@@ -88,9 +89,10 @@ void main() {
     col = clamp(sumCol, 0.0, 1.0);
     a = uTransparent > 0 ? clamp(cover * 0.9, 0.0, 1.0) : 1.0;
   } else {
-    vec2 s = q;
+    vec3 sumCol = vec3(0.0);
     for (int k = 0; k < 3; ++k) {
-      s -= 0.15;
+      float idx = float(k) - 1.0;
+      vec2 s = q + idx * vec2(0.12, 0.08);
       vec2 r = sin(1.2 * (s.yx * uFrequency)) + cos(s * uFrequency) - 1.0;
       float m0 = length(r + sin(4.0 * r.y * uFrequency - 2.5 * t + float(k)) / 4.0);
       float kBelow = clamp(uWarpStrength, 0.0, 1.0);
@@ -100,7 +102,8 @@ void main() {
       vec2 warped = s + disp * gain;
       float m1 = length(warped + sin(4.0 * warped.y * uFrequency - 2.5 * t + float(k)) / 4.0);
       float m = mix(m0, m1, kMix);
-      col[k] = exp(-m * m / max(uBandWidth, 0.001));
+      float w = exp(-m * m / max(uBandWidth, 0.001));
+      col[k] = w;
     }
     a = uTransparent > 0 ? max(max(col.r, col.g), col.b) : 1.0;
   }
@@ -128,20 +131,20 @@ void main() {
 export default function ColorBends({
   className,
   style,
-  rotation = 90,
-  speed = 0.2,
+  rotation = 0,
+  speed = 0.25,
   colors = [],
   transparent = true,
   autoRotate = 0,
   scale = 1,
   frequency = 1.0,
-  warpStrength = 1,
+  warpStrength = 1.0,
   mouseInfluence = 1,
   parallax = 0.5,
   noise = 0.12,
-  iterations = 1,
-  intensity = 1.3,
-  bandWidth = 0.25,
+  iterations = 2,
+  intensity = 1.2,
+  bandWidth = 0.4,
   dotField = true,
   dotFieldColors,
 }: ColorBendsProps) {

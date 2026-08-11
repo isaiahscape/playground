@@ -38,15 +38,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
             colors={isDark 
               ? ['#8B5CF6', '#7C3AED', '#6D28D9', '#A855F7', '#EC4899', '#D946EF', '#3B82F6'] 
               : ['#A78BFA', '#8B5CF6', '#7C3AED', '#C084FC', '#F0ABFC', '#E879F9', '#60A5FA']}
-            rotation={45}
+            rotation={0}
             speed={0.25}
-            frequency={1.1}
-            warpStrength={1.2}
+            frequency={1.0}
+            warpStrength={1.0}
             mouseInfluence={1}
             parallax={0.5}
             noise={0.12}
-            intensity={isDark ? 1.3 : 1.5}
-            bandWidth={0.35}
+            intensity={isDark ? 1.1 : 1.3}
+            bandWidth={0.4}
             iterations={2}
             dotFieldColors={isDark
               ? ['rgba(168, 85, 247, 0.35)', 'rgba(180, 151, 207, 0.25)']
