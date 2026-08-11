@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from './hooks/useTheme';
 import { useRouter } from './hooks/useRouter';
 import { Navbar } from './components/Navbar';
@@ -53,7 +54,17 @@ export default function App() {
 
       {/* Page Body Container */}
       <main className="flex-1 w-full pb-8">
-        {renderContent()}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPath}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {renderContent()}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Footer */}

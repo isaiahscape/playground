@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { PROJECTS_DATA } from '../../data/projectsData';
 import { ProjectCard } from '../ProjectCard';
 import { BuildBadge } from '../BuildBadge';
@@ -27,6 +28,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
       p.techStack.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
+
+  const categories = ['All', 'Finance', 'Android', 'Design System'];
 
   return (
     <div className="space-y-12 pb-8">
@@ -66,51 +69,82 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
           <div className="absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_bottom,transparent,black_60%)] bg-gradient-to-b from-transparent to-zinc-50 dark:to-black" />
         </div>
 
-        <div className="relative z-10 max-w-3xl space-y-5 px-4 sm:px-6 lg:px-8 mx-auto text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 max-w-3xl space-y-5 px-4 sm:px-6 lg:px-8 mx-auto text-center"
+        >
           
-          <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full text-xs font-mono font-semibold">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.3 }}
+            className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full text-xs font-mono font-semibold"
+          >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Status</span>
             <span className="opacity-50">•</span>
             <span>Active</span>
-          </div>
+          </motion.div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+          <motion.h1 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.4 }}
+            className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight"
+          >
             Leonardo's <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-purple-400 to-purple-500 dark:from-purple-400 dark:via-purple-300 dark:to-purple-400">Playground</span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans">
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.4 }}
+            className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans"
+          >
             Independent, free and open-source applications built by Isaiah. Featuring Bedrock, Material Explorer, and Anchor budget & expense tracker.
-          </p>
+          </motion.p>
 
           {/* Quick Hero Actions */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
-            <button
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.4 }}
+            className="flex flex-wrap items-center justify-center gap-3 pt-3"
+          >
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => onNavigate('/anchor')}
               className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-400 text-white dark:text-zinc-950 font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-lg"
             >
               <Wallet className="w-4 h-4" />
               <span>Anchor: Expense Tracker (Coming Soon)</span>
-            </button>
+            </motion.button>
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => onNavigate('/status')}
               className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-300 dark:border-zinc-700"
             >
               <Activity className="w-4 h-4 text-purple-500 dark:text-purple-400" />
               <span>Commit Matrix</span>
-            </button>
+            </motion.button>
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => onNavigate('/screenshots')}
               className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-200 font-semibold px-4 py-2.5 rounded-xl text-xs transition border border-zinc-300 dark:border-zinc-700"
             >
               <ImageIcon className="w-4 h-4 text-purple-500 dark:text-purple-400" />
               <span>Screenshots & Gallery</span>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
-        </div>
+        </motion.div>
       </section>
 
       {/* Main Page Content Container */}

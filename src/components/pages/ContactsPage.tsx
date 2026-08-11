@@ -1,14 +1,25 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { MdMail as Mail, MdGroups as Groups } from 'react-icons/md';
 import { FaGithub as Github, FaDiscord as Discord } from 'react-icons/fa';
 import { DiscordButton } from '../DiscordButton';
 
 export const ContactsPage: React.FC = () => {
   return (
-    <div className="space-y-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
+      className="space-y-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8"
+    >
       
       {/* Header */}
-      <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1 }}
+        className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl"
+      >
         <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">
           <Mail className="w-4 h-4" />
           <span>play.isaiahthings.me/contacts</span>
@@ -19,7 +30,7 @@ export const ContactsPage: React.FC = () => {
         <p className="text-xs sm:text-sm text-zinc-400 mt-1">
           Join the community, get support, and stay up to date with the latest FOSS releases.
         </p>
-      </div>
+      </motion.div>
 
       {/* Discord Communities */}
       <div className="space-y-6">
@@ -125,6 +136,6 @@ export const ContactsPage: React.FC = () => {
         </div>
       </div>
 
-    </div>
+    </motion.div>
   );
 };

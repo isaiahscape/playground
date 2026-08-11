@@ -1,13 +1,24 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { MdInfo as Info, MdSecurity as Shield, MdCode as Code, MdFavorite as Heart, MdTerminal as Terminal, MdCheckCircleOutline as CheckCircle2 } from 'react-icons/md';
 import { FaGithub as Github } from 'react-icons/fa';
 
 export const AboutPage: React.FC = () => {
   return (
-    <div className="space-y-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
+      className="space-y-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8"
+    >
       
       {/* Header */}
-      <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1 }}
+        className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl"
+      >
         <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">
           <Info className="w-4 h-4" />
           <span>play.isaiahthings.me/about</span>
@@ -18,7 +29,7 @@ export const AboutPage: React.FC = () => {
         <p className="text-xs sm:text-sm text-zinc-400 mt-1">
           Free and Open Source Software - Anchor, Bedrock, and Material Explorer.
         </p>
-      </div>
+      </motion.div>
 
       {/* Content cards */}
       <div className="space-y-6">
@@ -69,6 +80,6 @@ export const AboutPage: React.FC = () => {
 
       </div>
 
-    </div>
+    </motion.div>
   );
 };

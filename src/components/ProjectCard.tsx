@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { FOSSProject } from '../types';
 import { useGitHubRepo } from '../hooks/useGitHubRepo';
 import { BuildBadge } from './BuildBadge';
@@ -35,9 +36,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
   };
 
   return (
-    <div 
+    <motion.div 
+      whileHover={{ y: -4, transition: { duration: 0.15, ease: 'easeOut' } }}
+      whileTap={{ scale: 0.985 }}
       onClick={() => onNavigate(`/${project.id}`)}
-      className="group relative bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-purple-500/50 dark:hover:border-purple-500/40 transition-all duration-200 shadow-sm hover:shadow-xl hover:shadow-purple-500/5 cursor-pointer flex flex-col justify-between"
+      className="group relative bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-purple-500/50 dark:hover:border-purple-500/40 transition-colors duration-200 shadow-sm hover:shadow-xl hover:shadow-purple-500/5 cursor-pointer flex flex-col justify-between"
     >
       <div>
         {/* Header: Title, Repo, Badges */}
@@ -184,6 +187,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

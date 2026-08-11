@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Screenshot, ProjectId } from '../types';
 import { PROJECTS_DATA } from '../data/projectsData';
 import { MdUpload as MdUpload, MdDelete as MdDelete, MdFullscreen as MdFullscreen, MdClose as MdClose, MdImage as ImageIcon, MdAdd as MdAdd, MdAutoAwesome as Sparkles, MdLayers as Layers, MdTerminal as Terminal, MdWallet as Wallet, MdCheckCircleOutline as CheckCircle2 } from 'react-icons/md';
@@ -238,141 +239,164 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ selectedPr
         </div>
       )}
 
-      {/* MdUpload Modal Dialog */}
-      {showMdUploadModal && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl w-full max-w-lg p-6 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3 mb-4">
-              <div className="flex items-center gap-2">
-                <MdUpload className="w-5 h-5 text-purple-500" />
-                <h3 className="font-bold text-lg text-zinc-900 dark:text-zinc-100">MdUpload App Screenshot</h3>
-              </div>
-              <button
-                onClick={() => setShowMdUploadModal(false)}
-                className="p-1 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg text-zinc-400"
-              >
-                <MdClose className="w-5 h-5" />
-              </button>
-            </div>
-
-            <form onSubmit={handleAddScreenshot} className="space-y-4">
-              <div>
-                <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
-                  Target Project
-                </label>
-                <select
-                  value={uploadTargetProject}
-                  onChange={(e) => setMdUploadTargetProject(e.target.value as ProjectId)}
-                  className="w-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs font-medium text-zinc-900 dark:text-zinc-100 focus:outline-none"
-                >
-                  <option value="anchor">Anchor (Budget / Expense Tracker)</option>
-                  <option value="bedrock">Bedrock (Core Runtime)</option>
-                  <option value="materialexp">MaterialExp (UI Showcase)</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
-                  Screenshot Title
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={uploadTitle}
-                  onChange={(e) => setMdUploadTitle(e.target.value)}
-                  placeholder="e.g. Anchor Monthly Expense Breakdown View"
-                  className="w-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
-                  Caption / Description
-                </label>
-                <textarea
-                  rows={2}
-                  value={uploadCaption}
-                  onChange={(e) => setMdUploadCaption(e.target.value)}
-                  placeholder="Brief explanation of what this screenshot shows..."
-                  className="w-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
-                  Image File (PNG / JPG)
-                </label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  required
-                  onChange={handleImageFileChange}
-                  className="w-full text-xs text-zinc-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-purple-500/10 file:text-purple-600 hover:file:bg-purple-500/20"
-                />
-              </div>
-
-              {uploadPreview && (
-                <div className="aspect-video bg-zinc-950 rounded-xl overflow-hidden border border-zinc-700">
-                  <img src={uploadPreview} alt="MdUpload preview" className="w-full h-full object-cover" />
-                </div>
-              )}
-
-              <div className="pt-3 flex justify-end gap-2 border-t border-zinc-200 dark:border-zinc-800">
-                <button
-                  type="button"
+      {/* Upload Modal */}
+      <AnimatePresence>
+        {showMdUploadModal && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowMdUploadModal(false)}
+            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4"
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4"
+            >
+              <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 font-mono flex items-center gap-2">
+                  <MdUpload className="w-4 h-4 text-purple-500" />
+                  <span>Upload Local Screenshot</span>
+                </h3>
+                <button 
                   onClick={() => setShowMdUploadModal(false)}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200"
+                  className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200"
                 >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={!uploadPreview}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-50"
-                >
-                  Save Screenshot
+                  <MdClose className="w-5 h-5" />
                 </button>
               </div>
-            </form>
-          </div>
-        </div>
-      )}
+
+              <form onSubmit={handleAddScreenshot} className="space-y-3">
+                <div>
+                  <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
+                    Target FOSS Project
+                  </label>
+                  <select
+                    value={uploadTargetProject}
+                    onChange={(e) => setMdUploadTargetProject(e.target.value as ProjectId)}
+                    className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs font-mono text-zinc-900 dark:text-zinc-100"
+                  >
+                    <option value="anchor">Anchor: Budget & Expense Tracker</option>
+                    <option value="bedrock">Bedrock: Offline-First Knowledge Engine</option>
+                    <option value="materialexp">Material Explorer: Android Jetpack Previewer</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
+                    Title / Feature Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={uploadTitle}
+                    onChange={(e) => setMdUploadTitle(e.target.value)}
+                    placeholder="e.g., Transactions Dashboard"
+                    className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs text-zinc-900 dark:text-zinc-100"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
+                    Caption / Summary
+                  </label>
+                  <textarea
+                    rows={2}
+                    value={uploadCaption}
+                    onChange={(e) => setMdUploadCaption(e.target.value)}
+                    placeholder="Short description of the UI layout..."
+                    className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs text-zinc-900 dark:text-zinc-100"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
+                    Image File (PNG / JPG)
+                  </label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    required
+                    onChange={handleImageFileChange}
+                    className="w-full text-xs text-zinc-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-purple-500/10 file:text-purple-600 hover:file:bg-purple-500/20"
+                  />
+                </div>
+
+                {uploadPreview && (
+                  <div className="aspect-video bg-zinc-950 rounded-xl overflow-hidden border border-zinc-700">
+                    <img src={uploadPreview} alt="MdUpload preview" className="w-full h-full object-cover" />
+                  </div>
+                )}
+
+                <div className="pt-3 flex justify-end gap-2 border-t border-zinc-200 dark:border-zinc-800">
+                  <button
+                    type="button"
+                    onClick={() => setShowMdUploadModal(false)}
+                    className="px-4 py-2 rounded-xl text-xs font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={!uploadPreview}
+                    className="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-50"
+                  >
+                    Save Screenshot
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Lightbox Modal */}
-      {activeLightbox && (
-        <div 
-          onClick={() => setActiveLightbox(null)}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
-        >
-          <div 
-            onClick={(e) => e.stopPropagation()}
-            className="max-w-5xl w-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95"
+      <AnimatePresence>
+        {activeLightbox && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveLightbox(null)}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
           >
-            <div className="bg-zinc-950 p-3 px-4 border-b border-zinc-800 flex items-center justify-between text-xs text-zinc-300 font-mono">
-              <span className="font-bold text-purple-400">{activeLightbox.title}</span>
-              <button
-                onClick={() => setActiveLightbox(null)}
-                className="p-1 hover:bg-zinc-800 rounded text-zinc-400 hover:text-white"
-              >
-                <MdClose className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="p-2 max-h-[75vh] flex items-center justify-center bg-black">
-              <img
-                src={activeLightbox.url}
-                alt={activeLightbox.title}
-                className="max-h-[70vh] object-contain rounded-lg"
-              />
-            </div>
-            <div className="p-4 bg-zinc-900 border-t border-zinc-800 text-xs text-zinc-400">
-              <p className="font-medium text-zinc-200">{activeLightbox.caption}</p>
-              <span className="text-[10px] text-zinc-500 font-mono mt-1 block">
-                Project: {PROJECTS_DATA[activeLightbox.projectId]?.name}
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-5xl w-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <div className="bg-zinc-950 p-3 px-4 border-b border-zinc-800 flex items-center justify-between text-xs text-zinc-300 font-mono">
+                <span className="font-bold text-purple-400">{activeLightbox.title}</span>
+                <button
+                  onClick={() => setActiveLightbox(null)}
+                  className="p-1 hover:bg-zinc-800 rounded text-zinc-400 hover:text-white"
+                >
+                  <MdClose className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="p-2 max-h-[75vh] flex items-center justify-center bg-black">
+                <img
+                  src={activeLightbox.url}
+                  alt={activeLightbox.title}
+                  className="max-h-[70vh] object-contain rounded-lg"
+                />
+              </div>
+              <div className="p-4 bg-zinc-900 border-t border-zinc-800 text-xs text-zinc-400">
+                <p className="font-medium text-zinc-200">{activeLightbox.caption}</p>
+                <span className="text-[10px] text-zinc-500 font-mono mt-1 block">
+                  Project: {PROJECTS_DATA[activeLightbox.projectId]?.name}
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

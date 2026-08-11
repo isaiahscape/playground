@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { PROJECTS_DATA } from '../../data/projectsData';
 import { BuildBadge } from '../BuildBadge';
 import { MdInsights as Activity, MdCheckCircleOutline as CheckCircle2, MdRefresh as RefreshCw, MdCallSplit as GitBranch, MdSecurity as ShieldAlert, MdAutoAwesome as Sparkles } from 'react-icons/md';
@@ -7,9 +8,19 @@ export const StatusPage: React.FC = () => {
   const projects = Object.values(PROJECTS_DATA);
 
   return (
-    <div className="space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
+      className="space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8"
+    >
       {/* Header */}
-      <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1 }}
+        className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6"
+      >
         <div>
           <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">
             <Activity className="w-4 h-4" />
@@ -30,23 +41,26 @@ export const StatusPage: React.FC = () => {
             <span className="text-sm font-bold text-purple-400">All Pipelines Operational</span>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Projects Status Matrix */}
+      {/* Grid of Status Cards */}
       <div className="space-y-6">
-        {projects.map((project) => (
-          <div
+        {projects.map((project, idx) => (
+          <motion.div
             key={project.id}
-            className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-xs space-y-4"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 + idx * 0.1 }}
+            className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 space-y-4 shadow-xs"
           >
-            <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-3">
-              <div className="flex items-center gap-3">
-                <span className="font-bold text-lg text-zinc-900 dark:text-zinc-100 font-mono">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+              <div>
+                <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono">
                   {project.name}
-                </span>
-                <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                </h2>
+                <p className="text-xs text-zinc-500 font-mono">
                   {project.repo}
-                </span>
+                </p>
               </div>
 
               <span className="text-xs font-mono text-purple-600 dark:text-purple-400 font-semibold flex items-center gap-1">
@@ -59,9 +73,9 @@ export const StatusPage: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <BuildBadge repoFullName={project.repo} />
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };

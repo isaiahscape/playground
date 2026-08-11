@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MdSearch as Search, MdTerminal as Terminal, MdLayers as Layers, MdWallet as Wallet, MdCode as Code, MdCheck as Check, MdContentCopy as Copy, MdOpenInNew as ExternalLink, MdInsights as Activity, MdImage as Image, MdInfo as Info, MdGroups as Contacts } from 'react-icons/md';
 import { PROJECTS_DATA } from '../data/projectsData';
 
@@ -31,8 +32,6 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
-
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
     setCopiedText(text);
@@ -52,11 +51,24 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
   );
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-start justify-center pt-20 px-4 transition-opacity">
-      <div 
-        className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-2xl w-full max-w-xl overflow-hidden animate-in fade-in zoom-in-95 duration-150"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+          onClick={onClose}
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-start justify-center pt-20 px-4"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+            className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-2xl w-full max-w-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
         {/* Search Input Bar */}
         <div className="flex items-center border-b border-zinc-200 dark:border-zinc-800 px-3.5 py-3 gap-3">
           <Search className="w-4 h-4 text-zinc-400 shrink-0" />
@@ -157,7 +169,9 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
           <span>play.isaiahthings.me</span>
           <span>Press ESC to close</span>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
   );
 };
