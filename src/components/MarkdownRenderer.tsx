@@ -83,7 +83,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
             if (isInline) {
               return (
                 <code
-                  className="bg-zinc-100 dark:bg-zinc-800 text-purple-600 dark:text-purple-400 px-1.5 py-0.5 rounded-md text-xs font-mono border border-zinc-200 dark:border-zinc-700/60"
+                  className="bg-zinc-100 dark:bg-zinc-800 text-purple-600 dark:text-purple-400 px-1.5 py-0.5 rounded-md text-xs border border-zinc-200 dark:border-zinc-700/60"
                   {...props}
                 >
                   {children}
@@ -97,7 +97,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
             );
           },
           pre: ({ children }) => (
-            <pre className="bg-zinc-950 text-zinc-200 p-4 rounded-xl font-mono text-xs overflow-x-auto my-4 border border-zinc-800 leading-relaxed">
+            <pre className="bg-zinc-950 text-zinc-200 p-4 rounded-xl text-xs overflow-x-auto my-4 border border-zinc-800 leading-relaxed">
               {children}
             </pre>
           ),

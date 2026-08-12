@@ -14,7 +14,7 @@ export const BuildBadge: React.FC<CommitBadgeProps> = ({ repoFullName, compact =
   if (compact) {
     return (
       <div 
-        className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono border transition bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border-zinc-200 dark:border-zinc-700`}
+        className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] border transition bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border-zinc-200 dark:border-zinc-700`}
         title={loading ? 'Loading...' : `Latest commit on ${commit?.branch}`}
       >
         <FaGithub className="w-3 h-3 text-zinc-500" />
@@ -57,7 +57,7 @@ export const BuildBadge: React.FC<CommitBadgeProps> = ({ repoFullName, compact =
         )}
       </div>
 
-      <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400 pt-2 border-t border-zinc-100 dark:border-zinc-800/60 mt-auto">
+      <div className="flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400 pt-2 border-t border-zinc-100 dark:border-zinc-800/60 mt-auto">
         <div className="flex items-center gap-2">
           <span className="flex items-center gap-1" title="Branch">
             <GitBranch className="w-3 h-3 text-zinc-400" />

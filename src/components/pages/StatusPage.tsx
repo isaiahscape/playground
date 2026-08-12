@@ -22,7 +22,7 @@ export const StatusPage: React.FC = () => {
         className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6"
       >
         <div>
-          <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">
+          <div className="flex items-center gap-2 text-purple-400 text-xs font-semibold mb-2">
             <Activity className="w-4 h-4" />
             <span>play.isaiahthings.me/status</span>
           </div>
@@ -34,7 +34,7 @@ export const StatusPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-3 bg-zinc-800/80 border border-zinc-700 p-4 rounded-2xl shrink-0 font-mono">
+        <div className="flex items-center gap-3 bg-zinc-800/80 border border-zinc-700 p-4 rounded-2xl shrink-0">
           <div className="w-3 h-3 rounded-full bg-purple-500 animate-ping" />
           <div>
             <span className="block text-[10px] text-zinc-400 uppercase">Overall System Status</span>
@@ -55,15 +55,15 @@ export const StatusPage: React.FC = () => {
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-200 dark:border-zinc-800 pb-4">
               <div>
-                <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono">
+                <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
                   {project.name}
                 </h2>
-                <p className="text-xs text-zinc-500 font-mono">
+                <p className="text-xs text-zinc-500">
                   {project.repo}
                 </p>
               </div>
 
-              <span className="text-xs font-mono text-purple-600 dark:text-purple-400 font-semibold flex items-center gap-1">
+              <span className="text-xs text-purple-600 dark:text-purple-400 font-semibold flex items-center gap-1">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Build Passing</span>
               </span>

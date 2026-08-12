@@ -96,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Search className="w-3.5 h-3.5 text-zinc-400" />
               <span className="hidden md:inline">Search...</span>
-              <kbd className="hidden md:inline-flex items-center text-[10px] font-mono bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 px-1.5 py-0.5 rounded text-zinc-500 dark:text-zinc-400 ml-1">
+              <kbd className="hidden md:inline-flex items-center text-[10px] bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 px-1.5 py-0.5 rounded text-zinc-500 dark:text-zinc-400 ml-1">
                 ⌘K
               </kbd>
             </motion.button>

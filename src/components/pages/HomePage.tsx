@@ -80,7 +80,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.3 }}
-            className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full text-xs font-mono font-semibold"
+            className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full text-xs font-semibold"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Status</span>
@@ -171,7 +171,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
                   placeholder="Filter repositories..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none font-mono"
+                  className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none"
                 />
               </div>
             </div>
@@ -229,7 +229,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
                     <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
                       [SN] Anomaly
                     </h3>
-                    <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                       discord.gg/Y3mjXM9NvK
                     </p>
                   </div>
@@ -258,7 +258,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, isDark }) => {
                     <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
                       Moss Laboratories Community
                     </h3>
-                    <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                       discord.gg/GcMssBpa6A
                     </p>
                   </div>

@@ -7,11 +7,11 @@ export const ScreenshotsPage: React.FC = () => {
     <div className="space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
       {/* Header */}
       <div className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl">
-        <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">
+        <div className="flex items-center gap-2 text-purple-400 text-xs font-semibold mb-2">
           <ImageIcon className="w-4 h-4" />
           <span>play.isaiahthings.me/screenshots</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
           Application Screenshots & Media Gallery
         </h1>
         <p className="text-xs sm:text-sm text-zinc-400 mt-1 max-w-2xl">

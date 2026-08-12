@@ -77,10 +77,10 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search projects, repos, terminal commands, or pages..."
-            className="w-full bg-transparent text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none font-mono"
+            className="w-full bg-transparent text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none"
             autoFocus
           />
-          <kbd className="text-[10px] font-mono text-zinc-400 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-1.5 py-0.5 rounded">
+          <kbd className="text-[10px] text-zinc-400 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-1.5 py-0.5 rounded">
             ESC
           </kbd>
         </div>
@@ -105,7 +105,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">{project.name}</span>
-                      <span className="text-[11px] font-mono text-zinc-400">{project.repo}</span>
+                      <span className="text-[11px] text-zinc-400">{project.repo}</span>
                     </div>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-1">{project.tagline}</p>
                   </div>
@@ -165,7 +165,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose, onNav
         </div>
 
         {/* Footer info */}
-        <div className="bg-zinc-50 dark:bg-black border-t border-zinc-200 dark:border-zinc-800 px-3 py-2 flex items-center justify-between text-[11px] text-zinc-400 font-mono">
+        <div className="bg-zinc-50 dark:bg-black border-t border-zinc-200 dark:border-zinc-800 px-3 py-2 flex items-center justify-between text-[11px] text-zinc-400">
           <span>play.isaiahthings.me</span>
           <span>Press ESC to close</span>
         </div>

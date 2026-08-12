@@ -20,11 +20,11 @@ export const ContactsPage: React.FC = () => {
         transition={{ delay: 0.1 }}
         className="bg-zinc-900 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-xl"
       >
-        <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-2">
+        <div className="flex items-center gap-2 text-purple-400 text-xs font-semibold mb-2">
           <Mail className="w-4 h-4" />
           <span>play.isaiahthings.me/contacts</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
           Contacts & Community
         </h1>
         <p className="text-xs sm:text-sm text-zinc-400 mt-1">
@@ -36,7 +36,7 @@ export const ContactsPage: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center gap-2">
           <Discord className="w-5 h-5 text-[#8B5CF6]" />
-          <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono">
+          <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
             Discord Communities
           </h2>
         </div>
@@ -49,10 +49,10 @@ export const ContactsPage: React.FC = () => {
                 <Discord className="w-6 h-6 text-[#8B5CF6]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
                   [SN] Anomaly
                 </h3>
-                <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                   discord.gg/Y3mjXM9NvK
                 </p>
               </div>
@@ -76,10 +76,10 @@ export const ContactsPage: React.FC = () => {
                 <Discord className="w-6 h-6 text-[#8B5CF6]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
                   Moss Laboratories Community
                 </h3>
-                <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                   discord.gg/GcMssBpa6A
                 </p>
               </div>
@@ -100,7 +100,7 @@ export const ContactsPage: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center gap-2">
           <Groups className="w-5 h-5 text-purple-500" />
-          <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono">
+          <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
             Other Channels
           </h2>
         </div>
@@ -112,10 +112,10 @@ export const ContactsPage: React.FC = () => {
                 <Github className="w-6 h-6 text-zinc-700 dark:text-zinc-300" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono tracking-tight">
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
                   GitHub Organization
                 </h3>
-                <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                   github.com/isaiahscape
                 </p>
               </div>

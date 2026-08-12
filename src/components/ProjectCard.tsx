@@ -54,22 +54,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
                 <h3 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   {project.name}
                 </h3>
-                <span className="text-xs font-mono text-zinc-400 font-normal">
+                <span className="text-xs text-zinc-400 font-normal">
                   {project.version}
                 </span>
               </div>
-              <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5 truncate">
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 truncate">
                 {project.repo}
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-1 shrink-0">
-            <span className="inline-flex items-center gap-1 text-xs font-mono font-medium text-zinc-600 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 px-2.5 py-1 rounded-md">
+            <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 px-2.5 py-1 rounded-md">
               <Star className="w-3.5 h-3.5 text-purple-500 fill-purple-500" />
               <span>{stats.stars}</span>
             </span>
-            <span className="inline-flex items-center gap-1 text-xs font-mono font-medium text-zinc-600 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 px-2 py-1 rounded-md">
+            <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 px-2 py-1 rounded-md">
               <GitFork className="w-3.5 h-3.5 text-zinc-400" />
               <span>{stats.forks}</span>
             </span>
@@ -87,7 +87,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
         {/* Shields / CI Build Status Badges Row */}
         <div className="flex items-center gap-2 flex-wrap mb-4">
           <BuildBadge repoFullName={project.repo} compact={true} />
-          <span className="text-[11px] font-mono text-zinc-500 bg-zinc-100 dark:bg-zinc-800/80 px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-700/50">
+          <span className="text-[11px] text-zinc-500 bg-zinc-100 dark:bg-zinc-800/80 px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-700/50">
             {project.license}
           </span>
         </div>
@@ -108,7 +108,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate })
       {/* Footer Actions & Quick Clone command */}
       <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800/80 space-y-3">
         {/* Clone command preview */}
-        <div className="flex items-center justify-between bg-zinc-50 dark:bg-black/80 border border-zinc-200 dark:border-zinc-800/80 rounded-lg px-2.5 py-1.5 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+        <div className="flex items-center justify-between bg-zinc-50 dark:bg-black/80 border border-zinc-200 dark:border-zinc-800/80 rounded-lg px-2.5 py-1.5 text-xs text-zinc-600 dark:text-zinc-400">
           <span className="truncate mr-2">git clone {project.cloneUrl}</span>
           <button
             onClick={handleCopyClone}

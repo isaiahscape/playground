@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="w-6 h-6 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-xs">
                 <Terminal className="w-3.5 h-3.5" />
               </div>
-              <span className="font-bold text-base text-zinc-900 dark:text-zinc-100 font-mono">
+              <span className="font-bold text-base text-zinc-900 dark:text-zinc-100">
                 isaiahscape
               </span>
             </div>
@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               href="https://isaiahthings.me"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-mono text-xs px-3 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 transition"
+              className="inline-flex items-center gap-1.5 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs px-3 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 transition"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span>isaiahthings.me</span>
@@ -53,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Repositories Quick Links Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs">
           <div>
-            <h4 className="font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px] font-mono mb-2">
+            <h4 className="font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px] mb-2">
               Featured Apps
             </h4>
             <ul className="space-y-1.5 text-zinc-600 dark:text-zinc-400">
@@ -76,10 +76,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           <div>
-            <h4 className="font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px] font-mono mb-2">
+            <h4 className="font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px] mb-2">
               Open Source Licenses
             </h4>
-            <ul className="space-y-1.5 text-zinc-600 dark:text-zinc-400 font-mono text-[11px]">
+            <ul className="space-y-1.5 text-zinc-600 dark:text-zinc-400 text-[11px]">
               <li>GPL-3.0 License (Anchor)</li>
               <li>Apache-2.0 License (Bedrock)</li>
               <li>MIT License (Overseer)</li>
@@ -87,11 +87,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           <div>
-            <h4 className="font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px] font-mono mb-2">
+            <h4 className="font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px] mb-2">
               Information
             </h4>
             <p className="text-zinc-500 dark:text-zinc-400 text-xs leading-relaxed">
-              Hosted on <code className="text-purple-600 dark:text-purple-400 font-mono font-bold">Vercel</code> with shenanigans, shadcn/UI components, and Github API integration.
+              Hosted on <code className="text-purple-600 dark:text-purple-400 font-bold">Vercel</code> with shenanigans, shadcn/UI components, and Github API integration.
             </p>
           </div>
         </div>
@@ -99,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom copyright */}
         <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-2">
           <p>© {new Date().getFullYear()} Isaiah (isaiahscape). All software licensed under open-source terms.</p>
-          <div className="flex items-center gap-1 font-mono text-[11px]">
+          <div className="flex items-center gap-1 text-[11px]">
             <span>Crafted with</span>
             <Heart className="w-3.5 h-3.5 text-purple-500 fill-purple-500 inline" />
             <span>for the FOSS community</span>
